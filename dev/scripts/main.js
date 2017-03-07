@@ -15,7 +15,13 @@ nomadApp.getCity = function(city) {
 			key: nomadApp.key
 		}
 	}).then(function(cities) {
-		console.log(cities)
+		var accomdationCost = cities.result[0].cost.airbnb_median.USD;
+		var hotelCost = cities.result[0].cost.hotel.USD;
+		var coffeeCost = cities.result[0].cost.coffee_in_cafe.USD;
+		var beerCost = cities.result[0].cost.beer_in_cafe.USD;
+		var nomadCost = cities.result[0].cost.nomad.USD;
+		var expatCost =cities.result[0].cost.expat.USD;
+		console.log(accomdationCost, coffeeCost, beerCost, hotelCost);
 	})
 }
 
@@ -24,11 +30,13 @@ nomadApp.getCost = function() {
 	
 }
 
+
+
 // user enters city name, forEach loop through entire list of cities
 // we take out country and state, user only sees city name
 
 nomadApp.init = function () {
-	nomadApp.getCity()
+	nomadApp.getCity('toronto-canada');
 }
 
 $(function() {
