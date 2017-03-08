@@ -4,15 +4,19 @@
 	<meta charset="UTF-8">
 	<title>Nomad App</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-	<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet"/>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
 	<link rel="stylesheet" href="public/styles/style.css">
+	<link href="https://fonts.googleapis.com/css?family=Quicksand|Roboto" rel="stylesheet">
 </head>
 <body>
 <header>
 	<h1>Plan your next adventure!</h1>
+	<select class="js-example-basic-single" name="" id=""></select>
+	<button type="button"> Travel</button>
 </header>
 <section class="userInputs">
+
 	<form action="">
 	<input type="text" placeholder="Enter desired city...">
 	<select class="js-example-basic-single" name="" id="">
@@ -52,13 +56,18 @@
 		<input type="number" placeholder="$ Total Budget" id="budget">
 	</div>
 
+
 	<input type="submit" value="SUBMIT ME">
 	</form>
 </section>
+<!-- end of userInputs -->
+
 <!-- this is where the results will be shown -->
 <section class="results">
 </section>
-
+<footer>
+	<p>created in colaboration with Nick Evans, Jessica Ho, and Michelle Payne</p>
+</footer>
 	
 		
 	<script src="dev/scripts/main.js"></script>
