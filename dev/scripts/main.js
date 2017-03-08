@@ -46,22 +46,25 @@ nomadApp.getCityInfo = function(cityName) {
 				key: nomadApp.key,
 			}
 		}).then(function(cityOptions) {
-			console.log('hiii', cityOptions);
-			// var accommodationCost = cityOptions.result[0].cost.airbnb_median.USD;
-			// var hotelCost = cityOptions.result[0].cost.hotel.USD;
-			// var coffeeCost = cityOptions.result[0].cost.coffee_in_cafe.USD;
-			// var beerCost = cityOptions.result[0].cost.beer_in_cafe.USD;
-			// console.log('please work', accommodationCost, hotelCost, coffeeCost, beerCost);
+			console.log(cityOptions)
 			nomadApp.events(cityOptions);
 		})
 
 }
 
 nomadApp.events = function(cityOptions) {
+	// costs pulled from API
+	var accommodationCost = cityOptions.result[0].cost.airbnb_median.USD;
+	var hotelCost = cityOptions.result[0].cost.hotel.USD;
+	var coffeeCost = cityOptions.result[0].cost.coffee_in_cafe.USD;
+	var beerCost = cityOptions.result[0].cost.beer_in_cafe.USD;
+
+
 	// when form is submitted
 	$('form').on('submit', function(e) {
 		e.preventDefault();
 
+		
 	// retrieve the user's inputs
 		console.log('transferedData',cityOptions)
 		// total budget 
@@ -71,11 +74,29 @@ nomadApp.events = function(cityOptions) {
 		// how many pints/day
 		var alcohol = $('[name=alcohol]:checked').val();
 		// how many cups/day
-		var coffee = $('[name=coffee]:checked').val();	
+		var coffee = $('[name=coffee]:checked').val();
 
-		console.log(`${budget} ${stay} ${alcohol} ${coffee}`)
+		// calculating individual costs per day 
+		var alcoholPerDay = (alcohol * beerCost);
+		var coffeePerDay = (coffee * coffeeCost);
+		if (stay === 'airbnb_median') {
+			var stayCost =  accommodationCost;
+		} else {
+			var stayCost =  hotelCost;
+		}
 
-		// nomadApp.getCity(cities);
+		
+
+		// console.log(coffeePerDay, alcoholPerDay)
+
+		// calculating total costs per day
+		var totalCost = Math.floor(budget / (stayCost + alcoholPerDay + coffeePerDay));
+
+
+		// var calculations;
+		// calcuations wills have to change based on math function that calculates the cost of travel per day
+		$('.results').text(`You can stay in ${cityName} for ${totalCost} days based on your selected style of travel`);
+		console.log(totalCost)
 	});
 }
 
@@ -86,7 +107,7 @@ nomadApp.events = function(cityOptions) {
 
 nomadApp.init = function () {
 	nomadApp.getCity()
-	nomadApp.events()
+	// nomadApp.events()
 	$(".js-example-basic-single").select2();
 }
 
