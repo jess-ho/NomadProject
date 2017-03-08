@@ -21,12 +21,12 @@ nomadApp.getCity = function() {
 		var eachCity = cities.result
 		
 		eachCity.forEach(function(city) {
-			console.log(city)
+			// console.log(city)
 			$('select').append($("<option>").text(city));
 		})
 
 		cityName = $('.js-example-basic-single option:selected').text();
-		console.log('sdf', cityName);
+		// console.log('sdf', cityName);
 		
 		nomadApp.getCityInfo(cityName);
 
@@ -45,19 +45,24 @@ nomadApp.getCityInfo = function(cityName) {
 				key: nomadApp.key,
 			}
 		}).then(function(cityOptions) {
-			console.log('hiii', cityOptions);
+			// console.log('hiii', cityOptions);
 			var accommodationCost = cityOptions.result[0].cost.airbnb_median.USD;
 			var hotelCost = cityOptions.result[0].cost.hotel.USD;
 			var coffeeCost = cityOptions.result[0].cost.coffee_in_cafe.USD;
 			var beerCost = cityOptions.result[0].cost.beer_in_cafe.USD;
-			console.log('please work', accommodationCost, hotelCost, coffeeCost, beerCost);
+			// console.log('please work', accommodationCost, hotelCost, coffeeCost, beerCost);
 		})
 
 }
 
 nomadApp.events = function() {
+	$('form#cityInput').on('submit', function(e) {
+		e.preventDefault();
+	});
+
+
 	// when form is submitted
-	$('form').on('submit', function(e) {
+	$('form#costInput').on('submit', function(e) {
 		e.preventDefault();
 
 	// retrieve the user's inputs
@@ -74,6 +79,9 @@ nomadApp.events = function() {
 		console.log(`${budget} ${stay} ${alcohol} ${coffee}`)
 
 		// nomadApp.getCity(cities);
+		var calculations = 3;
+
+		$('.results').text(`You can stay in ${cityName} for ${calculations} days based on your style of travel`);
 	});
 }
 
