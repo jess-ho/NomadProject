@@ -76,6 +76,13 @@ nomadApp.getCityInfo = function(cityName) {
 
 nomadApp.events = function() {
 	// when form is submitted
+	$('button').on('click', function(e){
+		e.preventDefault();
+		$('.firstScreen').hide();
+		$('.secondScreen').show();
+		$('.results').empty();
+	})
+
 	$('form').on('submit', function(e) {
 		e.preventDefault();
 	
