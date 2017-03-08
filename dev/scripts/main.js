@@ -45,7 +45,7 @@ nomadApp.getCityInfo = function(cityName) {
 		var hotelCost = cityOptions.result[0].cost.hotel.USD;
 		var coffeeCost = cityOptions.result[0].cost.coffee_in_cafe.USD;
 		var beerCost = cityOptions.result[0].cost.beer_in_cafe.USD;
-		// var nomadCost = cityOptions.result[0].cost.nomad.USD;
+		var nomadCost = cityOptions.result[0].cost.nomad.USD;
 
 		// total budget 
 		var budget = $('#budget').val();
@@ -59,15 +59,17 @@ nomadApp.getCityInfo = function(cityName) {
 		// calculating individual costs per day 
 		var alcoholPerDay = (alcohol * beerCost);
 		var coffeePerDay = (coffee * coffeeCost);
+		// radio button for hotel or airbnb
 		if (stay === 'airbnb_median') {
 			var stayCost =  airbnbCost;
 		} else {
 			var stayCost =  hotelCost;
 		}
-		// var foodCost = ((nomadCost / 30) - hotelCost);
+
+		var foodCost = ((nomadCost / 30) - hotelCost);
 
 		// calculating total costs per day
-		var totalCost = Math.floor(budget / (stayCost + alcoholPerDay + coffeePerDay));
+		var totalCost = Math.floor(budget / (foodCost + stayCost + alcoholPerDay + coffeePerDay));
 
 		// the cost of travel per day in selected city
 		$('.results').text(`You can stay in ${nomadApp.cityName} for ${totalCost} days based on your selected style of travel`);
@@ -78,8 +80,6 @@ nomadApp.events = function() {
 	// when form is submitted
 	$('form').on('submit', function(e) {
 		e.preventDefault();
-	
-	// retrieve the user's inputs
 
 		// get city name
 		nomadApp.cityName = $('#city').val();
