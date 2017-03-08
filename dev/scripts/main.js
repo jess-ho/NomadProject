@@ -21,14 +21,13 @@ nomadApp.getCity = function() {
 		var eachCity = cities.result
 		
 		eachCity.forEach(function(city) {
-
 			console.log(city)
 			var cityClean = city.replace(/-/g, " ");
 			$('select').append($("<option>").text(cityClean).val(city));
 		})
 
-		cityName = $('.js-example-basic-single option:selected').text();
-		// console.log('sdf', cityName);
+		cityName = $('.js-example-basic-single option:selected').val();
+		console.log('sdf', cityName);
 		
 		nomadApp.getCityInfo(cityName);
 
@@ -47,28 +46,24 @@ nomadApp.getCityInfo = function(cityName) {
 				key: nomadApp.key,
 			}
 		}).then(function(cityOptions) {
-			// console.log('hiii', cityOptions);
-			var accommodationCost = cityOptions.result[0].cost.airbnb_median.USD;
-			var hotelCost = cityOptions.result[0].cost.hotel.USD;
-			var coffeeCost = cityOptions.result[0].cost.coffee_in_cafe.USD;
-			var beerCost = cityOptions.result[0].cost.beer_in_cafe.USD;
+			console.log('hiii', cityOptions);
+			// var accommodationCost = cityOptions.result[0].cost.airbnb_median.USD;
+			// var hotelCost = cityOptions.result[0].cost.hotel.USD;
+			// var coffeeCost = cityOptions.result[0].cost.coffee_in_cafe.USD;
+			// var beerCost = cityOptions.result[0].cost.beer_in_cafe.USD;
 			// console.log('please work', accommodationCost, hotelCost, coffeeCost, beerCost);
+			nomadApp.events(cityOptions);
 		})
 
 }
 
-nomadApp.events = function() {
-	$('form#cityInput').on('submit', function(e) {
-		e.preventDefault();
-	});
-
-
+nomadApp.events = function(cityOptions) {
 	// when form is submitted
-	$('form#costInput').on('submit', function(e) {
+	$('form').on('submit', function(e) {
 		e.preventDefault();
 
 	// retrieve the user's inputs
-		
+		console.log('transferedData',cityOptions)
 		// total budget 
 		var budget = $('#budget').val();
 		// airbnb or hotel
@@ -81,11 +76,6 @@ nomadApp.events = function() {
 		console.log(`${budget} ${stay} ${alcohol} ${coffee}`)
 
 		// nomadApp.getCity(cities);
-
-		var calculations = 3;
-		// calcuations wills have to change based on math function that calculates the cost of travel per day
-		$('.results').text('You can stay in' ${cityName} 'for' ${calculations} 'days based on your selected style of travel');
-
 	});
 }
 
