@@ -5,6 +5,7 @@ const babel = require('gulp-babel');
 const autoprefixer = require('gulp-autoprefixer');
 const browserSync = require('browser-sync').create();
 const reload = browserSync.reload;
+const plumber = require('gulp-plumber');
 
 gulp.task('styles', () => {
 	return gulp.src('./dev/styles/**/*.scss')
@@ -16,6 +17,7 @@ gulp.task('styles', () => {
 
 gulp.task("scripts", () =>{
 	return gulp.src("./dev/scripts/main.js")
+		.pipe(plumber())
 		.pipe(babel({
 			presets: ['es2015']
 		}))
