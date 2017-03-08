@@ -22,7 +22,8 @@ nomadApp.getCity = function() {
 		
 		eachCity.forEach(function(city) {
 			console.log(city)
-			$('select').append($("<option>").text(city));
+			var cityClean = city.replace(/-/g, " ");
+			$('select').append($("<option>").text(cityClean).val(city));
 		})
 
 		cityName = $('.js-example-basic-single option:selected').text();
@@ -89,9 +90,10 @@ nomadApp.events = function() {
 nomadApp.init = function () {
 	nomadApp.getCity()
 	nomadApp.events()
-
+	$(".js-example-basic-single").select2();
 }
 
 $(function() {
-	nomadApp.init()
+	nomadApp.init();
+
 })
