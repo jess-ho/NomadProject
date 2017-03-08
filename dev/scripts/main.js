@@ -4,10 +4,12 @@ nomadApp.url = 'https://nomadlist.com/api/v2/list/cities/'
 nomadApp.key = 'EDcwZCGMD5gMmdWT3BrI'
 nomadApp.client = 'hackeryou'
 
+var cityName;
+
 // ajax call for city input
-nomadApp.getCity = function(city) {
+nomadApp.getCity = function() {
 	$.ajax({
-		url: nomadApp.url + city,
+		url: nomadApp.url,
 		method: 'GET',
 		dataType: 'json',
 		data: {
@@ -15,25 +17,42 @@ nomadApp.getCity = function(city) {
 			key: nomadApp.key
 		}
 	}).then(function(cities) {
-		// var nomadCost = cities.result[0].cost.nomad.USD;
-		// var expatCost =cities.result[0].cost.expat.USD;
-		// console.log(accomdationCost, coffeeCost, beerCost, hotelCost);
 
-		nomadApp.getCost(cities);
+		var eachCity = cities.result
+		
+		eachCity.forEach(function(city) {
+			console.log(city)
+			$('select').append($("<option>").text(city));
+		})
+
+		cityName = $('.js-example-basic-single option:selected').text();
+		console.log('sdf', cityName);
+		
+		nomadApp.getCityInfo(cityName);
+
 	})
-}
-
-// ajax call , get cost
-nomadApp.getCost = function(cities) {
-	var cityName = cities.result[0].info.city.name;
-	var accommodationCost = cities.result[0].cost.airbnb_median.USD;
-	var hotelCost = cities.result[0].cost.hotel.USD;
-	var hotelPerDay = hotelCost / 30;
-	var coffeeCost = cities.result[0].cost.coffee_in_cafe.USD;
-	var beerCost = cities.result[0].cost.beer_in_cafe.USD;
 
 
-	
+};
+
+nomadApp.getCityInfo = function(cityName) {
+	$.ajax({
+			url: nomadApp.url + cityName,
+			method: 'GET',
+			dataType: 'json',
+			data: {
+				client: nomadApp.client,
+				key: nomadApp.key,
+			}
+		}).then(function(cityOptions) {
+			console.log('hiii', cityOptions);
+			var accommodationCost = cityOptions.result[0].cost.airbnb_median.USD;
+			var hotelCost = cityOptions.result[0].cost.hotel.USD;
+			var coffeeCost = cityOptions.result[0].cost.coffee_in_cafe.USD;
+			var beerCost = cityOptions.result[0].cost.beer_in_cafe.USD;
+			console.log('please work', accommodationCost, hotelCost, coffeeCost, beerCost);
+		})
+
 }
 
 nomadApp.events = function() {
@@ -64,8 +83,9 @@ nomadApp.events = function() {
 // we take out country and state, user only sees city name
 
 nomadApp.init = function () {
-	// nomadApp.getCity('amsterdam-netherlands')
+	nomadApp.getCity()
 	nomadApp.events()
+
 }
 
 $(function() {
