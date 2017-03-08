@@ -28,7 +28,7 @@ nomadApp.getCost = function() {
 // we take out country and state, user only sees city name
 
 nomadApp.init = function () {
-	nomadApp.getCity()
+	nomadApp.getCity('amsterdam-netherlands')
 }
 
 $(function() {
