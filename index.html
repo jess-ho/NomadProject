@@ -11,58 +11,55 @@
 </head>
 <body>
 <header>
-	<h1>Plan your next adventure!</h1>
+
 
 	<form action="" id="cityInput">
-	<select class="js-example-basic-single" name="" id="city"></select>
+		<div class="firstScreen">
+			<h1>Plan your next adventure!</h1>
+			<select class="js-example-basic-single" name="" id="city"></select>
+			<button>Next</button>
+		</div>
+		<!-- end of first screen -->
 
-	<!-- <button type="button"> Travel</button> -->
+		<div class="secondScreen">
+			<div class="coffeeConsumption">	
+				<h3>Please choose your average coffee consumption per day.</h3>
+				<label for="noCoffee">None</label>
+				<input type="radio" name="coffee" id="noCoffee" value="0">
+				<label for="someCoffee">Some Coffee</label>
+				<input type="radio" name="coffee" id="someCoffee" value="2">
+				<label for="lotsCoffee">Lots of Coffee</label>
+				<input type="radio" name="coffee" id="lotsCoffee" value="4">
+			</div>
 
-	<div class="coffeeConsumption">	
-		<h3>Please choose your average coffee consumption per day.</h3>
-		<label for="noCoffee">None</label>
-		<input type="radio" name="coffee" id="noCoffee" value="0">
-		<label for="someCoffee">Some Coffee</label>
-		<input type="radio" name="coffee" id="someCoffee" value="2">
-		<label for="lotsCoffee">Lots of Coffee</label>
-		<input type="radio" name="coffee" id="lotsCoffee" value="4">
-	</div>
+			<div class="alcoholConsumption">
+				<h3>Please choose your average alcohol consumption per day.</h3>
+				<label for="noAlcohol">None</label>
+				<input type="radio" name="alcohol" id="noAlcohol" value="0">
+				<label for="someAlcohol">Some Alcohol</label>
+				<input type="radio" name="alcohol" id="someAlcohol" value="2">
+				<label for="lotsAlcohol">Lots of Alcohol</label>
+				<input type="radio" name="alcohol" id="lotsAlcohol" value="4">	
+			</div>
 
-	<div class="alcoholConsumption">
-		<h3>Please choose your average alcohol consumption per day.</h3>
-		<label for="noAlcohol">None</label>
-		<input type="radio" name="alcohol" id="noAlcohol" value="0">
-		<label for="someAlcohol">Some Alcohol</label>
-		<input type="radio" name="alcohol" id="someAlcohol" value="2">
-		<label for="lotsAlcohol">Lots of Alcohol</label>
-		<input type="radio" name="alcohol" id="lotsAlcohol" value="4">	
-	</div>
+			<div class = "stayStyle">
+				<h3>Please choose your style of accommodation.</h3>
+				<label for="airbnb">AirBnb</label>
+				<input type="radio" name="accommodation" id="airbnb" value="airbnb_median">
+				<label for="hotel">Hotel</label>
+				<input type="radio" name="accommodation" id="hotel" value="hotel">
+			</div>
 
-	<div class = "stayStyle">
-		<h3>Please choose your style of accommodation.</h3>
-		<label for="airbnb">AirBnb</label>
-		<input type="radio" name="accommodation" id="airbnb" value="airbnb_median">
-		<label for="hotel">Hotel</label>
-		<input type="radio" name="accommodation" id="hotel" value="hotel">
-	</div>
+			<div>
+				<h3>What is your total budget for this trip?</h3>
+				<input type="number" placeholder="$ Total Budget" id="budget">
+			</div>
 
-	<div>
-		<h3>What is your total budget for this trip?</h3>
-		<input type="number" placeholder="$ Total Budget" id="budget">
-	</div>
-
-	<input type="submit" value="SUBMIT ME">
+			<input type="submit" value="SUBMIT ME">
+		</div>	
+		<!-- end of second screen -->
 	</form>
 </header>
-<section class="userInputs">
-
-
-	<!-- <form action="" id="costInput">
-
-	
-	</form> -->
-</section>
-<!-- end of userInputs -->
 
 <!-- this is where the results will be shown -->
 <section class="results">
