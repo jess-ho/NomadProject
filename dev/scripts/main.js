@@ -17,6 +17,7 @@ nomadApp.getCity = function() {
 			key: nomadApp.key
 		}
 	}).then(function(cities) {
+
 		var eachCity = cities.result
 		
 		eachCity.forEach(function(city) {
@@ -28,7 +29,9 @@ nomadApp.getCity = function() {
 		console.log('sdf', cityName);
 		
 		nomadApp.getCityInfo(cityName);
+
 	})
+
 
 };
 
@@ -49,6 +52,7 @@ nomadApp.getCityInfo = function(cityName) {
 			var beerCost = cityOptions.result[0].cost.beer_in_cafe.USD;
 			console.log('please work', accommodationCost, hotelCost, coffeeCost, beerCost);
 		})
+
 }
 
 nomadApp.events = function() {
@@ -56,9 +60,20 @@ nomadApp.events = function() {
 	$('form').on('submit', function(e) {
 		e.preventDefault();
 
-		// retrieve the user's inputs
+	// retrieve the user's inputs
 		
+		// total budget 
+		var budget = $('#budget').val();
+		// airbnb or hotel
+		var stay = $('[name=accommodation]:checked').val();
+		// how many pints/day
+		var alcohol = $('[name=alcohol]:checked').val();
+		// how many cups/day
+		var coffee = $('[name=coffee]:checked').val();	
 
+		console.log(`${budget} ${stay} ${alcohol} ${coffee}`)
+
+		// nomadApp.getCity(cities);
 	});
 }
 
@@ -69,6 +84,8 @@ nomadApp.events = function() {
 
 nomadApp.init = function () {
 	nomadApp.getCity()
+	nomadApp.events()
+
 }
 
 $(function() {
