@@ -15,13 +15,17 @@ nomadApp.getCity = function(city) {
 			key: nomadApp.key
 		}
 	}).then(function(cities) {
-		var accomdationCost = cities.result[0].cost.airbnb_median.USD;
-		var hotelCost = cities.result[0].cost.hotel.USD;
-		var coffeeCost = cities.result[0].cost.coffee_in_cafe.USD;
-		var beerCost = cities.result[0].cost.beer_in_cafe.USD;
-		var nomadCost = cities.result[0].cost.nomad.USD;
-		var expatCost =cities.result[0].cost.expat.USD;
-		console.log(accomdationCost, coffeeCost, beerCost, hotelCost);
+		console.log('everything', cities)
+		// var eachCity = cities.result[0].info.city
+		// // var accomdationCost = cities.result[0].cost.airbnb_median.USD;
+		// // var hotelCost = cities.result[0].cost.hotel.USD;
+		// // var coffeeCost = cities.result[0].cost.coffee_in_cafe.USD;
+		// // var beerCost = cities.result[0].cost.beer_in_cafe.USD;
+		// // var nomadCost = cities.result[0].cost.nomad.USD;
+		// // var expatCost =cities.result[0].cost.expat.USD;
+		// // console.log(accomdationCost, coffeeCost, beerCost, hotelCost);
+		// console.log('test', eachCity)
+		// ea.forEach(function)
 	})
 }
 
