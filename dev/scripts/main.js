@@ -74,6 +74,10 @@ nomadApp.events = function() {
 		console.log(`${budget} ${stay} ${alcohol} ${coffee}`)
 
 		// nomadApp.getCity(cities);
+
+		var calculations = 3;
+		// calcuations wills have to change based on math function that calculates the cost of travel per day
+		$('.results').text('You can stay in' ${cityName} 'for' ${calculations} 'days based on your selected style of travel');
 	});
 }
 
