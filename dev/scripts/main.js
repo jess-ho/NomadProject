@@ -15,23 +15,35 @@ nomadApp.getCity = function(city) {
 			key: nomadApp.key
 		}
 	}).then(function(cities) {
-		console.log('everything', cities)
-		// var eachCity = cities.result[0].info.city
-		// // var accomdationCost = cities.result[0].cost.airbnb_median.USD;
-		// // var hotelCost = cities.result[0].cost.hotel.USD;
-		// // var coffeeCost = cities.result[0].cost.coffee_in_cafe.USD;
-		// // var beerCost = cities.result[0].cost.beer_in_cafe.USD;
-		// // var nomadCost = cities.result[0].cost.nomad.USD;
-		// // var expatCost =cities.result[0].cost.expat.USD;
-		// // console.log(accomdationCost, coffeeCost, beerCost, hotelCost);
-		// console.log('test', eachCity)
-		// ea.forEach(function)
+
+		// var nomadCost = cities.result[0].cost.nomad.USD;
+		// var expatCost =cities.result[0].cost.expat.USD;
+		// console.log(accomdationCost, coffeeCost, beerCost, hotelCost);
+
+		nomadApp.getCost(cities);
 	})
 }
 
 // ajax call , get cost
-nomadApp.getCost = function() {
+nomadApp.getCost = function(cities) {
+	var cityName = cities.result[0].info.city.name;
+	var accommodationCost = cities.result[0].cost.airbnb_median.USD;
+	var hotelCost = cities.result[0].cost.hotel.USD;
+	var hotelPerDay = hotelCost / 30;
+	var coffeeCost = cities.result[0].cost.coffee_in_cafe.USD;
+	var beerCost = cities.result[0].cost.beer_in_cafe.USD;
 	
+}
+
+nomadApp.events = function() {
+	// when form is submitted
+	$('form').on('submit', function(e) {
+		e.preventDefault();
+
+		// retrieve the user's inputs
+		
+
+	});
 }
 
 
@@ -40,7 +52,7 @@ nomadApp.getCost = function() {
 // we take out country and state, user only sees city name
 
 nomadApp.init = function () {
-	nomadApp.getCity('toronto-canada');
+	nomadApp.getCity('amsterdam-netherlands')
 }
 
 $(function() {
