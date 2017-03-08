@@ -15,12 +15,12 @@ nomadApp.getCity = function(city) {
 			key: nomadApp.key
 		}
 	}).then(function(cities) {
-		
+
 		// var nomadCost = cities.result[0].cost.nomad.USD;
 		// var expatCost =cities.result[0].cost.expat.USD;
 		// console.log(accomdationCost, coffeeCost, beerCost, hotelCost);
 
-		nomadApp.getCost(cityName, accommodationCost, hotelPerDay, coffeeCost, beerCost);
+		nomadApp.getCost(cities);
 	})
 }
 
@@ -41,13 +41,7 @@ nomadApp.events = function() {
 		e.preventDefault();
 
 		// retrieve the user's inputs
-		var city = $('city').val()
-		var length = $('length').val() / 3 // nomad(1-3 months divided 3 = 3 months in days), expat(4 months divided by 4 = 4 months in days)
-		var airbnb = $('airbnb').val()
-		var hotel = $('hotel').val()
-		var coffee = $('coffee').val()
-		var beer = $('beer').val()
-		var budget = $('budget').val()
+		
 
 	});
 }
