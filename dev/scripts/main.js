@@ -4,9 +4,10 @@ nomadApp.url = 'https://nomadlist.com/api/v2/list/cities/'
 nomadApp.key = 'EDcwZCGMD5gMmdWT3BrI'
 nomadApp.client = 'hackeryou'
 
-var cityName;
+// where the city name is recorded
+nomadApp.cityName;
 
-// ajax call for city input
+// ajax call that populates the drop-down menu
 nomadApp.getCity = function() {
 	$.ajax({
 		url: nomadApp.url,
@@ -25,48 +26,27 @@ nomadApp.getCity = function() {
 			var cityClean = city.replace(/-/g, " ");
 			$('select').append($("<option>").text(cityClean).val(city));
 		})
-
-		cityName = $('.js-example-basic-single option:selected').val();
-		console.log('sdf', cityName);
-		
-		nomadApp.getCityInfo(cityName);
-
 	})
-
-
 };
 
+// gets the costs and stuff from the city selected
 nomadApp.getCityInfo = function(cityName) {
 	$.ajax({
-			url: nomadApp.url + cityName,
-			method: 'GET',
-			dataType: 'json',
-			data: {
-				client: nomadApp.client,
-				key: nomadApp.key,
-			}
-		}).then(function(cityOptions) {
-			console.log(cityOptions)
-			nomadApp.events(cityOptions);
-		})
+		url: nomadApp.url + cityName,
+		method: 'GET',
+		dataType: 'json',
+		data: {
+			client: nomadApp.client,
+			key: nomadApp.key,
+		}
+	}).then(function(cityOptions) {
+		// variables for each cost needed
+		var airbnbCost = cityOptions.result[0].cost.airbnb_median.USD;
+		var hotelCost = cityOptions.result[0].cost.hotel.USD;
+		var coffeeCost = cityOptions.result[0].cost.coffee_in_cafe.USD;
+		var beerCost = cityOptions.result[0].cost.beer_in_cafe.USD;
+		// var nomadCost = cityOptions.result[0].cost.nomad.USD;
 
-}
-
-nomadApp.events = function(cityOptions) {
-	// costs pulled from API
-	var accommodationCost = cityOptions.result[0].cost.airbnb_median.USD;
-	var hotelCost = cityOptions.result[0].cost.hotel.USD;
-	var coffeeCost = cityOptions.result[0].cost.coffee_in_cafe.USD;
-	var beerCost = cityOptions.result[0].cost.beer_in_cafe.USD;
-
-
-	// when form is submitted
-	$('form').on('submit', function(e) {
-		e.preventDefault();
-
-		
-	// retrieve the user's inputs
-		console.log('transferedData',cityOptions)
 		// total budget 
 		var budget = $('#budget').val();
 		// airbnb or hotel
@@ -80,38 +60,39 @@ nomadApp.events = function(cityOptions) {
 		var alcoholPerDay = (alcohol * beerCost);
 		var coffeePerDay = (coffee * coffeeCost);
 		if (stay === 'airbnb_median') {
-			var stayCost =  accommodationCost;
+			var stayCost =  airbnbCost;
 		} else {
 			var stayCost =  hotelCost;
 		}
-
-		
-
-		// console.log(coffeePerDay, alcoholPerDay)
+		// var foodCost = ((nomadCost / 30) - hotelCost);
 
 		// calculating total costs per day
 		var totalCost = Math.floor(budget / (stayCost + alcoholPerDay + coffeePerDay));
 
+		// the cost of travel per day in selected city
+		$('.results').text(`You can stay in ${nomadApp.cityName} for ${totalCost} days based on your selected style of travel`);
+	})
+}
 
-		// var calculations;
-		// calcuations wills have to change based on math function that calculates the cost of travel per day
-		$('.results').text(`You can stay in ${cityName} for ${totalCost} days based on your selected style of travel`);
-		console.log(totalCost)
+nomadApp.events = function() {
+	// when form is submitted
+	$('form').on('submit', function(e) {
+		e.preventDefault();
+	
+	// retrieve the user's inputs
+
+		// get city name
+		nomadApp.cityName = $('#city').val();
+		nomadApp.getCityInfo(nomadApp.cityName);
 	});
 }
 
-
-
-// user enters city name, forEach loop through entire list of cities
-// we take out country and state, user only sees city name
-
 nomadApp.init = function () {
 	nomadApp.getCity()
-	// nomadApp.events()
+	nomadApp.events();
 	$(".js-example-basic-single").select2();
 }
 
 $(function() {
 	nomadApp.init();
-
 })
