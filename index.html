@@ -6,35 +6,49 @@
 </head>
 <body>
 <header>
-	<h1>hahahahahaha</h1>
-	<h2>THis better work!!</h2>
-	<input type="text" placeholder="Enter desired city...">
-	
-	<label for="shortTerm">Short term</label>
-	<input type="radio" name="lengthOfTravel" id="shortTerm">
-	<label for="shortTerm">Long term</label>
-	<input type="radio" name="lengthOfTravel" id="longTerm">
-
-	<label for="shortTerm">Little Coffee</label>
-	<input type="radio" name="coffeeConsumption" id="littleCoffee">
-	<label for="shortTerm">Heavy Coffee</label>
-	<input type="radio" name="coffeeConsumption" id="heavyCoffee">
-
-	<label for="littleAlcohol">Little Alcohol</label>
-	<input type="radio" name="alcoholConsumption" id="littleAlchohol">
-	<label for="heavyAlcohol">Heavy Alcohol</label>
-	<input type="radio" name="alcoholConsumption" id="heavyAlcohol">	
-
-	<label for="airbnb">AirBnb?</label>
-	<input type="radio" name="accomodationType" id="airbnb">
-	<label for="hotel">Hotel?</label>
-	<input type="radio" name="accomodationType" id="hotel">
-
-	<input type="text" placeholder="totalBudget">
-
+	<h1>Plan your next adventure!</h1>
 </header>
-	<h1>hello</h1>
-	<h2>goodbye</h2>
+<section class="userInputs">
+	<input type="text" placeholder="Enter desired city...">
+		
+	<div class="coffeeConsumption">	
+		<h3>Please choose your average coffee consumption per day.</h3>
+		<label for="noCoffee">None</label>
+		<input type="radio" name="coffee" id="noCoffee">
+		<label for="someCoffee">Some Coffee</label>
+		<input type="radio" name="coffee" id="someCoffee">
+		<label for="lotsCoffee">Lots of Coffee</label>
+		<input type="radio" name="coffee" id="lotsCoffee">
+	</div>
+
+	<div class="alcoholConsumption">
+		<h3>Please choose your average alcohol consumption per day.</h3>
+		<label for="noAlcohol">None</label>
+		<input type="radio" name="alcohol" id="noAlcohol">
+		<label for="someAlcohol">Some Alcohol</label>
+		<input type="radio" name="alcohol" id="someAlcohol">
+		<label for="lotsAlcohol">Lots of Alcohol</label>
+		<input type="radio" name="alcohol" id="lotsAlcohol">	
+	</div>
+
+	<div class = "stayStyle">
+		<h3>Please choose your style of accommodation.</h3>
+		<label for="airbnb">AirBnb</label>
+		<input type="radio" name="accommodation" id="airbnb">
+		<label for="hotel">Hotel</label>
+		<input type="radio" name="accommodation" id="hotel">
+	</div>
+
+	<div>
+		<h3>What is your total budget for this trip?</h3>
+		<input type="text" placeholder="$ Total Budget">
+	</div>
+
+</section>
+<!-- this is where the results will be shown -->
+<section class="results">
+</section>
+
 	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>	
 	<script src="dev/scripts/main.js"></script>
