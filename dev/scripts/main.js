@@ -72,7 +72,12 @@ nomadApp.getCityInfo = function(cityName) {
 		var totalCost = Math.floor(budget / (foodCost + stayCost + alcoholPerDay + coffeePerDay));
 
 		// the cost of travel per day in selected city
-		$('.results').text(`You can stay in ${nomadApp.cityName} for ${totalCost} days based on your selected style of travel`);
+		if (budget < 0) {
+			$('.results').text('Maybe you should get a credit loan first');
+		} else {
+			$('.results').text(`You can stay in ${nomadApp.cityName} for ${totalCost} days based on your selected style of travel`);
+		}
+		
 	})
 }
 
