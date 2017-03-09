@@ -30,7 +30,7 @@
 			<div class="coffeeConsumption">	
 				<h3>Please choose your average coffee consumption per day.</h3>
 				<label for="noCoffee">None</label>
-				<input type="radio" name="coffee" id="noCoffee" value="0">
+				<input type="radio" name="coffee" id="noCoffee" value="0" checked>
 				<label for="someCoffee">Some Coffee</label>
 				<input type="radio" name="coffee" id="someCoffee" value="2">
 				<label for="lotsCoffee">Lots of Coffee</label>
@@ -40,7 +40,7 @@
 			<div class="alcoholConsumption">
 				<h3>Please choose your average alcohol consumption per day.</h3>
 				<label for="noAlcohol">None</label>
-				<input type="radio" name="alcohol" id="noAlcohol" value="0">
+				<input type="radio" name="alcohol" id="noAlcohol" value="0" checked>
 				<label for="someAlcohol">Some Alcohol</label>
 				<input type="radio" name="alcohol" id="someAlcohol" value="2">
 				<label for="lotsAlcohol">Lots of Alcohol</label>
@@ -48,7 +48,7 @@
 			</div>
 
 			<div class = "choicesContainer">
-				<input type="button" name="stayStyle" class="choice housing" value="Airbnb" data-value="airbnb_median">
+				<input type="button" name="stayStyle" class="choice housing active" value="Airbnb" data-value="airbnb_median" checked>
 				<input type="button" name="stayStyle" class="choice housing" value="Hotel" data-value="hotel">
 			</div>
 
@@ -57,7 +57,7 @@
 				<input type="number" placeholder="$ Total Budget" id="budget">
 			</div>
 			<button class="headerBack">Go Back</button>
-			<input type="submit" value="SUBMIT ME">
+			<input type="submit" value="SUBMIT ME" class="submitButton" disabled>
 		</div>	
 		<!-- end of second screen -->
 	</form>
