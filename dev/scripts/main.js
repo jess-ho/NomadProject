@@ -50,11 +50,12 @@ nomadApp.getCityInfo = function(cityName) {
 		// total budget 
 		var budget = $('#budget').val();
 		// airbnb or hotel
-		var stay = $('[name=accommodation]:checked').val();
+		var stay = $('.active').data('value');
+		console.log(stay);
 		// how many pints/day
-		var alcohol = $('[name=alcohol]:checked').val();
+		var alcohol = $('[name=alcohol]').val();
 		// how many cups/day
-		var coffee = $('[name=coffee]:checked').val();
+		var coffee = $('[name=coffee]').val();
 
 		// calculating individual costs per day 
 		var alcoholPerDay = (alcohol * beerCost);
@@ -83,16 +84,25 @@ nomadApp.getCityInfo = function(cityName) {
 
 nomadApp.events = function() {
 	// when form is submitted
-	$('button').on('click', function(e){
+	$('.headerNext').on('click', function(e){
 		e.preventDefault();
 		$('.firstScreen').hide();
 		$('.secondScreen').show();
-		$('.results').empty();
+	})
+	$('.headerBack').on('click', function(e) {
+		e.preventDefault();
+		$('.secondScreen').hide();
+		$('.firstScreen').show();
+	})
+
+	$('.housing').click(function() {
+		$('.housing').removeClass('active');
+		$(this).addClass('active');
 	})
 
 	$('form').on('submit', function(e) {
 		e.preventDefault();
-
+		$('.results').show();
 		// get city name
 		nomadApp.cityName = $('#city').val();
 		nomadApp.getCityInfo(nomadApp.cityName);

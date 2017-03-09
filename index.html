@@ -16,8 +16,10 @@
 	<form action="" id="cityInput">
 		<div class="firstScreen">
 			<h1>Plan your next adventure!</h1>
-			<select class="js-example-basic-single" name="" id="city"></select>
-			<button>Next</button>
+			<select class="js-example-basic-single" name="" id="city">
+				<option value="" disabled selected>Pick a place</option>
+			</select>
+			<button class="headerNext">Next</button>
 		</div>
 		<!-- end of first screen -->
 
@@ -42,19 +44,16 @@
 				<input type="radio" name="alcohol" id="lotsAlcohol" value="4">	
 			</div>
 
-			<div class = "stayStyle">
-				<h3>Please choose your style of accommodation.</h3>
-				<label for="airbnb">AirBnb</label>
-				<input type="radio" name="accommodation" id="airbnb" value="airbnb_median">
-				<label for="hotel">Hotel</label>
-				<input type="radio" name="accommodation" id="hotel" value="hotel">
+			<div class = "choicesContainer">
+				<input type="button" name="stayStyle" class="choice housing" value="Airbnb" data-value="airbnb_median">
+				<input type="button" name="stayStyle" class="choice housing" value="Hotel" data-value="hotel">
 			</div>
 
 			<div>
 				<h3>What is your total budget for this trip?</h3>
 				<input type="number" placeholder="$ Total Budget" id="budget">
 			</div>
-
+			<button class="headerBack">Go Back</button>
 			<input type="submit" value="SUBMIT ME">
 		</div>	
 		<!-- end of second screen -->
