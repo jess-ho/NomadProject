@@ -70,13 +70,16 @@ nomadApp.getCityInfo = function(cityName) {
 
 		// total budget 
 		var budget = $('#budget').val();
+		console.log(budget)
 		// airbnb or hotel
 		var stay = $('.active').data('value');
-		console.log(stay);
+		console.log(stay)
 		// how many pints/day
-		var alcohol = $('[name=alcohol]').val();
+		var alcohol = $('[name=alcohol]:checked').val();
+		console.log(alcohol)
 		// how many cups/day
-		var coffee = $('[name=coffee]').val();
+		var coffee = $('[name=coffee]:checked').val();
+		console.log(coffee)
 
 		// calculating individual costs per day 
 		var alcoholPerDay = (alcohol * beerCost);

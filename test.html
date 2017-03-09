@@ -25,17 +25,19 @@
 		<!-- end of first screen -->
 
 		<!-- <div class="secondScreen"> -->
-			<div class="coffeeConsumption">	
-				<h3>Please choose your average coffee consumption per day.</h3>
-				<label for="coffee">None</label>
-				<input type="range" id="coffee" min="0" max="4" value="2">
+			<div class="coffeeConsumption">
+				<h3>How much coffee do you drink?</h3>
+				<label for="coffee">Coffee</label>
+				<input type="range" min="0" max="4" value="2" id="coffee" step="1">
 			</div>
 
-			<div class="alcoholConsumption">
-				<h3>Please choose your average alcohol consumption per day.</h3>
-				<label for="alcohol">None</label>
-				<input type="range" id="alcohol" min="0" max="6" value="3">
-			</div>
+			<ul class="coffee-labels">
+				<li>0</li>
+				<li>1</li>
+				<li class="active selected">2</li>
+				<li>3</li>
+				<li>4</li>
+			</ul>
 
 			<!-- <div class = "stayStyle">
 				<h3>Please choose your style of accommodation.</h3>
@@ -63,7 +65,7 @@
 	<p>created in colaboration with Nick Evans, Jessica Ho, and Michelle Payne with the Nomadlist API</p>
 </footer>
 	
-		
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>	
 	<script src="dev/scripts/test.js"></script>
 </body>
 </html>
