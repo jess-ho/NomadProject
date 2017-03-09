@@ -116,6 +116,12 @@ nomadApp.events = function() {
 		$('.firstScreen').hide();
 		$('.secondScreen').show();
 	})
+		$(".headerNext").hover(function(){
+		$(this).toggleClass("is-active");
+})
+
+
+
 	$('.headerBack').on('click', function(e) {
 		e.preventDefault();
 		$('.secondScreen').hide();

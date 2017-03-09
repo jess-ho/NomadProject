@@ -10,8 +10,11 @@ h1, h2, h3 {
 	font-family: 'Quicksand', sans-serif;
 	color: $darkColor;
 	text-align: center;
-
+	letter-spacing: 3px;
 }	
+h3{
+	margin:10px;
+}
 
 p{
 	font-family: 'Roboto', sans-serif;
@@ -19,11 +22,23 @@ p{
 	font-size: 18px;
 	line-height: 1.7;
 	text-align: center;
+	letter-spacing: 3px;
 }
 
 .js-example-basic-single {
-	width: 400px;
+	width: 250px;
 	text-transform: capitalize;
+	margin: 20px;
+	text-align: center;
+	
+}
+
+ select .js-example-basic-single {
+	border:0;
+	-webkit-appearance: none; 
+	-moz-appearance: none;
+	appearance: none;   
+	background-color: $accentColor;
 }
 
 .secondScreen, .results{
@@ -38,21 +53,47 @@ p{
 	background-image: url(../../assets/firstHero.jpg);
 	background-size: cover;
 	background-repeat: no-repeat;
-	height:100vh;
+	height:95vh;
 	background-position: center;
 	display: flex;
-	flex-direction: column;
+	flex-direction: column; 
 	justify-content: center;
 	align-items: center;
+	min-height: 650px;
 }
 
 .firstScreen img {
 	width: 100px;
 } 
 
-img path{
-	fill: $accentColor;
+.headerNext{
+	background-color: $accentColor;
+	color: #fff;
+	font-family: 'Roboto', sans-serif;
+	font-size: 18px;
+	border-radius: 3%;
+	width:200px;
+	text-transform: uppercase;
+	text-align: center;
+	letter-spacing: 3px;
+	padding: 10px 20px;
+	transition: all .5s ease;
+	margin:15px;
 }
+
+.is-active {
+	box-shadow: 0 25px 15px -15px rgba(#000, 1);
+	transform: translateY(8px);
+	background-color: $darkColor;
+	color: $accentColor;
+}
+
+.info p{
+	padding:0;
+	margin: 0 auto;
+	font-size: 10px;
+}
+
 .choicesContainer {
 	border: 3px solid lightgrey;
 	display: inline-flex;
@@ -84,7 +125,14 @@ img path{
 }
 
 .active {
-	background: red;
+	background: $accentColor;
 }
 
+footer{
+	// background-color: $accentColor;
+}
+footer p{
+	margin:0;
+	padding:0;
+}
 
