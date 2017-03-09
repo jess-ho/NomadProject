@@ -2,16 +2,23 @@
 
 // variables
 $darkColor: #3C434D;
-$mediunColor: #7C838E;
+$mediumColor: #7C838E;
 $lightColor: #C3B9B0;
 $accentColor: #FAA71A;
 
 h1, h2, h3 {
 	font-family: 'Quicksand', sans-serif;
+	color: $darkColor;
+	text-align: center;
+
 }	
 
 p{
 	font-family: 'Roboto', sans-serif;
+	color: $mediumColor;
+	font-size: 18px;
+	line-height: 1.7;
+	text-align: center;
 }
 
 .js-example-basic-single {
@@ -20,9 +27,31 @@ p{
 }
 
 .secondScreen, .results{
-	display:none;
+  display:none;
 }
 
+.dropDown{
+	text-align: center;
+}
+.firstScreen{
+	background-image: url(../../assets/firstHero.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+	height:100vh;
+	background-position: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.firstScreen img {
+	width: 100px;
+} 
+
+img path{
+	fill: $accentColor;
+}
 .choicesContainer {
 	border: 3px solid lightgrey;
 	display: inline-flex;
