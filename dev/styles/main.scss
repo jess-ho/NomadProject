@@ -36,22 +36,35 @@ label{
 }
 
 .js-example-basic-single {
-	width: 250px;
+	width: 370px;
 	margin: 20px;
 	text-align: center;
 	background: transparent;
+	appearance: none;
+	font-size: 20px;
 }
 
-.fa-info-circle {
+#select2-city-container {
+	color: $darkColor;
+}
+
+
+.select2-results__options li {
+	padding: 10px 5px;
+	text-transform: capitalize;
+}
+
+.fa-info-circle:before {
 	position: absolute;
 	color: $accentColor;
-	top: 5px;
-	left: 5px;
+	font-size: 30px;
+	top: 10px;
+	left: 10px;
 }
 .credits {
 	position: absolute;
-	top: 5px;
-	left: 25px;
+	top: 10px;
+	left: 45px;
 	p {
 		margin: 0;
 		text-align: left;
@@ -60,14 +73,7 @@ label{
 	}
 }
 
-#select2-city-container {
-	color: $darkColor;
-}
 
-.select2-results__options li {
-	padding: 20px 5px;
-	text-transform: capitalize;
-}
 
 .firstScreen{
 	display: flex;
@@ -96,7 +102,7 @@ header{
 }
 
 .firstScreen img {
-	width: 100px;
+	width: 75px;
 } 
 
 .headerNext, .submitButton, .headerBack{
