@@ -70,7 +70,11 @@ nomadApp.getCityInfo = function(cityName) {
 
 		// total budget 
 		var budget = $('#budget').val();
+<<<<<<< HEAD
 		console.log(budget)
+=======
+		
+>>>>>>> 3c4c8635b0c53ff207e2679a61888b965858e053
 		// airbnb or hotel
 		var stay = $('.active').data('value');
 		console.log(stay)
@@ -119,8 +123,15 @@ nomadApp.events = function() {
 		$('.firstScreen').hide();
 		$('.secondScreen').show();
 	})
+		$(".headerNext").hover(function(){
+		$(this).toggleClass("is-active");
+})
+
+
+
 	$('.headerBack').on('click', function(e) {
 		e.preventDefault();
+		location.reload();
 		$('.secondScreen').hide();
 		$('.firstScreen').show();
 	})
@@ -137,6 +148,12 @@ nomadApp.events = function() {
 		nomadApp.cityName = $('#city').val();
 		nomadApp.getCityInfo(nomadApp.cityName);
 	});
+
+	$('#budget').on('change', function() {
+		if ($('#budget').val() !== '') {
+			$('.submitButton').removeAttr('disabled');
+		}
+	})
 }
 
 nomadApp.init = function () {

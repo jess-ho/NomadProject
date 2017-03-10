@@ -11,26 +11,29 @@
 </head>
 <body>
 <header>
-
-
 	<form action="" id="cityInput">
-		<div class="firstScreen">
+
+		<div class="firstScreen">	
 			<img src="assets/nounProject.svg" alt="a paper airplane">
 			<h1>Plan your next adventure!</h1>
-
+			<h3>What city would you like to visit?</h3>
 			<select class="js-example-basic-single" name="" id="city">
-				<option value="" disabled selected>Pick a place</option>
+			<option value="" disabled selected> Pick a City</option>
 			</select>
 			<button class="headerNext">Next</button>
-
 		</div>
+			<div class="info">
+				<p>created in colaboration with Nick Evans, Jessica Ho, and Michelle Payne with the Nomadlist API. Icon provided by the Noun Project created by B Farias</p>
+			</div>
+		
+			
 		<!-- end of first screen -->
 
 		<div class="secondScreen">
 			<div class="coffeeConsumption">	
 				<h3>Please choose your average coffee consumption per day.</h3>
 				<label for="noCoffee">None</label>
-				<input type="radio" name="coffee" id="noCoffee" value="0">
+				<input type="radio" name="coffee" id="noCoffee" value="0" checked>
 				<label for="someCoffee">Some Coffee</label>
 				<input type="radio" name="coffee" id="someCoffee" value="2">
 				<label for="lotsCoffee">Lots of Coffee</label>
@@ -40,7 +43,7 @@
 			<div class="alcoholConsumption">
 				<h3>Please choose your average alcohol consumption per day.</h3>
 				<label for="noAlcohol">None</label>
-				<input type="radio" name="alcohol" id="noAlcohol" value="0">
+				<input type="radio" name="alcohol" id="noAlcohol" value="0" checked>
 				<label for="someAlcohol">Some Alcohol</label>
 				<input type="radio" name="alcohol" id="someAlcohol" value="2">
 				<label for="lotsAlcohol">Lots of Alcohol</label>
@@ -48,7 +51,7 @@
 			</div>
 
 			<div class = "choicesContainer">
-				<input type="button" name="stayStyle" class="choice housing" value="Airbnb" data-value="airbnb_median">
+				<input type="button" name="stayStyle" class="choice housing active" value="Airbnb" data-value="airbnb_median" checked>
 				<input type="button" name="stayStyle" class="choice housing" value="Hotel" data-value="hotel">
 			</div>
 
@@ -57,7 +60,7 @@
 				<input type="number" placeholder="$ Total Budget" id="budget">
 			</div>
 			<button class="headerBack">Go Back</button>
-			<input type="submit" value="SUBMIT ME">
+			<input type="submit" value="SUBMIT ME" class="submitButton" disabled>
 		</div>	
 		<!-- end of second screen -->
 	</form>
@@ -66,9 +69,6 @@
 <!-- this is where the results will be shown -->
 <section class="results">
 </section>
-<footer>
-	<p>created in colaboration with Nick Evans, Jessica Ho, and Michelle Payne with the Nomadlist API</p>
-</footer>
 	
 		
 	<script src="dev/scripts/main.js"></script>
