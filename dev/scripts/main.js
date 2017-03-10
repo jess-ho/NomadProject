@@ -101,17 +101,33 @@ nomadApp.getCityInfo = function(cityName) {
 
 		// if initial costs from api are undefined... 
 		if (airbnbCost === undefined && beerCost === undefined && coffeeCost === undefined && hotelCost === undefined) {
-			$('.results').text('ERROR');
+			$('.results').html(`
+				<p>${cityCleanName.replace(/-/g, " ")}'s information is currently unavailable.</p>
+				`);
 		}
 		// if someone enters negative budget 
 		else if (budget < 0) {
-			$('.results').text('Maybe you should get a credit loan first');
+			$('.results').html(`
+				<p>Maybe you should get a credit loan first</p>
+				`);
 		} 
 		// the cost of travel per day in selected city
 		else {
 			$('.results').html(`
-				<p>You can stay in <span class="capitalize">${cityCleanName.replace(/-/g, " ")}</span> for ${totalDays} days based on your selected style of travel</p>
-				`).css('background', `url('${cityImage1000}')`);
+				<p>You can stay in <span class="capitalize">${cityCleanName.replace(/-/g, " ")}</span> for ${totalDays} days based on your selected style of travel.</p>
+				<div class="result-details"></div>
+				<div>
+				<p>For $${budget}:</p>
+				<ul>
+					<li>Alcohol Consumption/Day ${alcoholPerDay}</li>
+					<li>Coffee Consumption/Day ${coffeePerDay}</li>
+					<li>Accommodation Costs/Day ${stayCost}</li>
+					<li>Meal Costs/Day ${foodCost}</li>
+				</ul>
+				</div>
+				`);
+
+			$('.result-details').css('background', `url('${cityImage1000}') no-repeat`);
 		}
 	})
 }
