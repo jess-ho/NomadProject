@@ -6,7 +6,7 @@ $darkColor: #3C434D;
 $mediumColor: #7C838E;
 $lightColor: #C3B9B0;
 $accentColor: #FAA71A;
-
+// base styling
 h1, h2, h3 {
 	font-family: 'Quicksand', sans-serif;
 	color: #fff;
@@ -19,10 +19,9 @@ h1 {
 
 h2{
 	margin:10px;
+  
 }
-
-
-p{
+p {
 	font-family: 'Roboto', sans-serif;
 	color: #fff;
 	font-size: 20px;
@@ -30,8 +29,7 @@ p{
 	text-align: center;
 	letter-spacing: 3px;
 }
-
-label{
+label {
 	color: $mediumColor;
 	font-family: 'Roboto', sans-serif;
 	font-size: 20px;
@@ -39,26 +37,43 @@ label{
 	text-align: center;
 	letter-spacing: 3px;
 }
-
-.js-example-basic-single {
-	width: 370px;
-	margin: 20px;
+.headerNext, .submitButton, .headerBack {
+	background-color: $accentColor;
+	color: #fff;
+	font-family: 'Roboto', sans-serif;
+	font-size: 18px;
+	border-radius: 3%;
+	border: none;
+	width: 200px;
+	text-transform: uppercase;
 	text-align: center;
-	background: transparent;
-	appearance: none;
-	font-size: 20px;
+	letter-spacing: 3px;
+	padding: 10px 20px;
+	transition: all .5s ease;
+	margin: 15px;
+	outline: none;
 }
-
-#select2-city-container {
-	color: $darkColor;
+.is-active {
+	box-shadow: 0 25px 15px -15px rgba(#000, 1);
+	transform: translateY(8px);
+	background-color: $darkColor;
+	color: $accentColor;
+	border: none;
+	outline: none;
 }
-
-
-.select2-results__options li {
-	padding: 10px 5px;
-	text-transform: capitalize;
+// end of base styling
+// header styling
+header {
+	background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(../../assets/firstHero.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+	height: 100vh;
+	background-position: center;
+	min-height: 650px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 }
-
 .fa-info-circle:before {
 	position: absolute;
 	color: $accentColor;
@@ -77,86 +92,44 @@ label{
 		display: none
 	}
 }
-
+.firstScreen img {
+	width: 75px;
+} 
+.js-example-basic-single {
+	width: 370px;
+	margin: 20px;
+	text-align: center;
+	background: transparent;
+	appearance: none;
+	font-size: 20px;
+}
+#select2-city-container {
+	color: $darkColor;
+}
 .select2-results__options li {
-	padding: 20px 5px;
+	padding: 10px 5px;
 	text-transform: capitalize;
 }
-
-.firstScreen{
+.firstScreen {
 	display: flex;
 }
-
-.secondScreen, .results{
-  display:none;
-}
-
-header{
-	background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(../../assets/firstHero.jpg);
-	background-size: cover;
-	background-repeat: no-repeat;
-	height:100vh;
-	background-position: center;
-	min-height: 650px;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-}
-
-.firstScreen, .secondScreen{
+.firstScreen, .secondScreen {
 	flex-direction: column; 
 	justify-content: center;
 	align-items: center;
 }
-
-.firstScreen img {
-	width: 75px;
-} 
-
-.headerNext, .submitButton, .headerBack{
-	background-color: $accentColor;
-	color: #fff;
-	font-family: 'Roboto', sans-serif;
-	font-size: 18px;
-	border-radius: 3%;
-	border:none;
-	width:200px;
-	text-transform: uppercase;
-	text-align: center;
-	letter-spacing: 3px;
-	padding: 10px 20px;
-	transition: all .5s ease;
-	margin:15px;
-	outline:none;
+.secondScreen, .results {
+  display: none;
 }
-
-
-.is-active {
-	box-shadow: 0 25px 15px -15px rgba(#000, 1);
-	transform: translateY(8px);
-	background-color: $darkColor;
-	color: $accentColor;
-	border:none;
-	outline:none;
-}
-
-.info p{
-	padding:0;
-	margin: 0 auto;
-	font-size: 10px;
-}
-
 .secondScreen {
-	text-align:center;
+	text-align: center;
 }
-
 .choicesContainer {
 	border: 3px solid lightgrey;
 	display: inline-flex;
 	border-radius: 3px;
 	max-width: 500px;
 }
-
 .choice {
 	height: 100%;
 	padding: 10px 20px;
@@ -174,26 +147,29 @@ header{
 		border-color: rgba(68,108,179, 0.5);
 		cursor: pointer;
 	}
-
 	.housing {
 		width: 50%;
 	}
 }
-
-.buttons{
-	display:flex;
-	border:none;
-	outline:none;
+.buttons {
+	display: flex;
+	border: none;
+	outline: none;
 }
-
-.submitButton:disabled{
+.submitButton:disabled {
 	background-color: rgba(250,167,26, 0.1);
 	color: rgba(255,255,255,0.1);
 	border: none;
-	outline:none;
+	outline: none;
 }
-
 .active {
 	background: $mediumColor;
 	color: white;
+	border: none;
+	outline: none;
 }
+
+.capitalize {
+	text-transform: capitalize;
+}
+
