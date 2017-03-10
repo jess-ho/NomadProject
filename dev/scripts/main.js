@@ -44,6 +44,7 @@ nomadApp.getCityInfo = function(cityName) {
 		}
 	}).then(function(cityOptions) {
 		// variables for each cost needed, makes sure there are cost results first
+		console.log(cityOptions.result[0])
 		if (cityOptions.result[0] !== undefined) {
 			var airbnbCost = cityOptions.result[0].cost.airbnb_median.USD;
 		} 
@@ -76,13 +77,10 @@ nomadApp.getCityInfo = function(cityName) {
 
 		// airbnb or hotel
 		var stay = $('.housing.active').data('value');
-		console.log(stay)
 		// how many pints/day
 		var alcohol = $('.beer.active').data('value');
-		console.log(alcohol)
 		// how many cups/day
 		var coffee = $('.cafe.active').data('value');
-		console.log(coffee)
 
 		// calculating individual costs per day 
 		var alcoholPerDay = (alcohol * beerCost);
