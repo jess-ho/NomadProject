@@ -7,6 +7,8 @@ nomadApp.client = 'hackeryou'
 // where the city name is recorded
 nomadApp.cityName;
 
+// nomadApp.cityCleanName;
+
 // ajax call that populates the drop-down menu
 nomadApp.getCity = function() {
 	$.ajax({
@@ -73,13 +75,13 @@ nomadApp.getCityInfo = function(cityName) {
 		var budget = $('#budget').val();
 
 		// airbnb or hotel
-		var stay = $('.active').data('value');
+		var stay = $('.housing.active').data('value');
 		console.log(stay)
 		// how many pints/day
-		var alcohol = $('[name=alcohol]:checked').data('value');
+		var alcohol = $('.beer.active').data('value');
 		console.log(alcohol)
 		// how many cups/day
-		var coffee = $('[name=coffee]').data(value);
+		var coffee = $('.cafe.active').data('value');
 		console.log(coffee)
 
 		// calculating individual costs per day 
@@ -97,6 +99,8 @@ nomadApp.getCityInfo = function(cityName) {
 		// calculating total costs per day
 		var totalDays = Math.floor(budget / (foodCost + stayCost + alcoholPerDay + coffeePerDay));
 
+		var cityCleanName = nomadApp.cityName;
+
 		// if initial costs from api are undefined... 
 		if (airbnbCost === undefined && beerCost === undefined && coffeeCost === undefined && hotelCost === undefined) {
 			$('.results').text('ERROR');
@@ -107,9 +111,10 @@ nomadApp.getCityInfo = function(cityName) {
 		} 
 		// the cost of travel per day in selected city
 		else {
-			$('.results').text(`You can stay in ${nomadApp.cityName} for ${totalDays} days based on your selected style of travel`).css('background', `url('${cityImage1000}')`);
+			$('.results').html(`
+				<p>You can stay in <span class="capitalize">${cityCleanName.replace(/-/g, " ")}</span> for ${totalDays} days based on your selected style of travel</p>
+				`).css('background', `url('${cityImage1000}')`);
 		}
-		
 	})
 }
 
