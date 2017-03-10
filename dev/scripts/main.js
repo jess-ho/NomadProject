@@ -152,7 +152,7 @@ nomadApp.events = function() {
 		$(this).toggleClass("is-active");
 })	
 
-	$('#budget').on('change', function() {
+	$('#budget').on('keydown', function() {
 		if ($('#budget').val() !== '') {
 			$('.submitButton').removeAttr('disabled');
 		}
