@@ -19,6 +19,7 @@ nomadApp.getCity = function() {
 		}
 	}).then(function(cities) {
 
+		// $('select').css('text-transform','uppercase');
 		var eachCity = cities.result
 		
 		eachCity.forEach(function(city) {
@@ -70,11 +71,7 @@ nomadApp.getCityInfo = function(cityName) {
 
 		// total budget 
 		var budget = $('#budget').val();
-<<<<<<< HEAD
-		console.log(budget)
-=======
-		
->>>>>>> 3c4c8635b0c53ff207e2679a61888b965858e053
+
 		// airbnb or hotel
 		var stay = $('.active').data('value');
 		console.log(stay)
@@ -121,13 +118,12 @@ nomadApp.events = function() {
 	$('.headerNext').on('click', function(e){
 		e.preventDefault();
 		$('.firstScreen').hide();
-		$('.secondScreen').show();
+		$('.secondScreen').css('display', 'flex').show();
 	})
-		$(".headerNext").hover(function(){
+
+	$(".headerNext").hover(function(){
 		$(this).toggleClass("is-active");
-})
-
-
+	})
 
 	$('.headerBack').on('click', function(e) {
 		e.preventDefault();
@@ -135,6 +131,10 @@ nomadApp.events = function() {
 		$('.secondScreen').hide();
 		$('.firstScreen').show();
 	})
+	$(".headerBack").hover(function(){
+		$(this).toggleClass("is-active");
+})		
+
 
 	$('.housing').click(function() {
 		$('.housing').removeClass('active');
@@ -148,11 +148,17 @@ nomadApp.events = function() {
 		nomadApp.cityName = $('#city').val();
 		nomadApp.getCityInfo(nomadApp.cityName);
 	});
+	$(".submitButton").hover(function(){
+		$(this).toggleClass("is-active");
+})	
 
 	$('#budget').on('change', function() {
 		if ($('#budget').val() !== '') {
 			$('.submitButton').removeAttr('disabled');
 		}
+	})
+	$('.fa-info-circle').on('click', function() {
+		$('.credits p').toggle('fadeIn');
 	})
 }
 
