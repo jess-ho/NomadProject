@@ -19,6 +19,7 @@ nomadApp.getCity = function() {
 		}
 	}).then(function(cities) {
 
+		// $('select').css('text-transform','uppercase');
 		var eachCity = cities.result
 		
 		eachCity.forEach(function(city) {
@@ -117,11 +118,10 @@ nomadApp.events = function() {
 		$('.firstScreen').hide();
 		$('.secondScreen').css('display', 'flex').show();
 	})
-		$(".headerNext").hover(function(){
+
+	$(".headerNext").hover(function(){
 		$(this).toggleClass("is-active");
-})
-
-
+	})
 
 	$('.headerBack').on('click', function(e) {
 		e.preventDefault();
@@ -154,6 +154,9 @@ nomadApp.events = function() {
 		if ($('#budget').val() !== '') {
 			$('.submitButton').removeAttr('disabled');
 		}
+	})
+	$('.fa-info-circle').on('click', function() {
+		$('.credits p').toggle('fadeIn');
 	})
 }
 

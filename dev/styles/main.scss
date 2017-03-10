@@ -37,18 +37,35 @@ label{
 
 .js-example-basic-single {
 	width: 250px;
-	text-transform: capitalize;
 	margin: 20px;
 	text-align: center;
-	
 }
 
- select .js-example-basic-single {
-	border:0;
-	-webkit-appearance: none; 
-	-moz-appearance: none;
-	appearance: none;   
-	background-color: $accentColor;
+.fa-info-circle {
+	position: absolute;
+	color: green;
+	top: 5px;
+	left: 5px;
+}
+.credits {
+	position: absolute;
+	top: 5px;
+	left: 25px;
+	p {
+		margin: 0;
+		text-align: left;
+		font-size: 12px;
+		display: none
+	}
+}
+
+#select2-city-container {
+	color: purple;
+}
+
+.select2-results__options li {
+	padding: 20px 5px;
+	text-transform: capitalize;
 }
 
 .firstScreen{
@@ -148,5 +165,7 @@ header{
 .active {
 	background: $accentColor;
 }
+
+
 
 
