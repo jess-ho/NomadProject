@@ -163,6 +163,15 @@ header{
 	}
 }
 
+.buttons{
+	display:flex;
+}
+
+.submitButton:disabled{
+	background-color: rgba(250,167,26, 0.1);
+	color: rgba(255,255,255,0.1);
+}
+
 .active {
 	background: $accentColor;
 }
