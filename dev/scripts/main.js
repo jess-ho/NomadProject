@@ -76,10 +76,10 @@ nomadApp.getCityInfo = function(cityName) {
 		var stay = $('.active').data('value');
 		console.log(stay)
 		// how many pints/day
-		var alcohol = $('[name=alcohol]:checked').val();
+		var alcohol = $('[name=alcohol]:checked').data('value');
 		console.log(alcohol)
 		// how many cups/day
-		var coffee = $('[name=coffee]:checked').val();
+		var coffee = $('[name=coffee]').data(value);
 		console.log(coffee)
 
 		// calculating individual costs per day 
@@ -133,11 +133,21 @@ nomadApp.events = function() {
 	})
 	$(".headerBack").hover(function(){
 		$(this).toggleClass("is-active");
-})		
+	})		
 
 
 	$('.housing').click(function() {
 		$('.housing').removeClass('active');
+		$(this).addClass('active');
+	})
+
+	$('.cafe').click(function() {
+		$('.cafe').removeClass('active');
+		$(this).addClass('active');
+	})
+
+	$('.beer').click(function() {
+		$('.beer').removeClass('active');
 		$(this).addClass('active');
 	})
 
