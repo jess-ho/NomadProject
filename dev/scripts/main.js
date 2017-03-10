@@ -125,18 +125,7 @@ nomadApp.getCityInfo = function(cityName) {
 				'height': '500px'
 			}))
 
-				<p>You can stay in <span class="capitalize">${cityCleanName.replace(/-/g, " ")}</span> for ${totalDays} days based on your selected style of travel.</p>
-				<div class="result-details"></div>
-				<div>
-				<p>For $${budget}:</p>
-				<ul>
-					<li>Alcohol Consumption/Day ${alcoholPerDay}</li>
-					<li>Coffee Consumption/Day ${coffeePerDay}</li>
-					<li>Accommodation Costs/Day ${stayCost}</li>
-					<li>Meal Costs/Day ${foodCost}</li>
-				</ul>
-				</div>
-				`);
+				
 
 	
 
