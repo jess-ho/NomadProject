@@ -10,11 +10,12 @@ h1, h2, h3 {
 	font-family: 'Quicksand', sans-serif;
 	color: #fff;
 	text-align: center;
-	letter-spacing: 3px;
 }	
+
 h2{
 	margin:10px;
 }
+
 
 p{
 	font-family: 'Roboto', sans-serif;
@@ -32,7 +33,6 @@ label{
 	line-height: 1.7;
 	text-align: center;
 	letter-spacing: 3px;
-
 }
 
 .js-example-basic-single {
@@ -70,7 +70,6 @@ label{
 	padding: 20px 5px;
 	text-transform: capitalize;
 }
-
 .firstScreen{
 	display: flex;
 }
@@ -182,9 +181,6 @@ header{
 }
 
 .active {
-	background: $accentColor;
+	background: $mediumColor;
+	color: white;
 }
-
-
-
-

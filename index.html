@@ -34,6 +34,29 @@
 
 		<div class="secondScreen">
 			<div class="coffeeConsumption">	
+
+				<h3>Please choose your average coffee consumption per day.</h3>
+				<div class="choicesContainer">
+				<input type="button" name="coffee" class="choice cafe active" value="0" data-value="coffee_in_cafe">
+				<input type="button" name="coffee" class="choice cafe" value="1" data-value="coffee_in_cafe">
+				<input type="button" name="coffee" class="choice cafe" value="2" data-value="coffee_in_cafe">
+				<input type="button" name="coffee" class="choice cafe" value="3" data-value="coffee_in_cafe">
+				<input type="button" name="coffee" class="choice cafe" value="4" data-value="coffee_in_cafe">
+				<input type="button" name="coffee" class="choice cafe" value="5+" data-value="coffee_in_cafe">
+				</div>
+			</div>
+
+			<div class="alcoholConsumption">
+				<h3>Please choose your average alcohol consumption per day.</h3>
+				<div class="choicesContainer">
+				<input type="button" name="alcohol" class="choice beer active" value="0" data-value="beer_in_cafe">
+				<input type="button" name="alcohol" class="choice beer" value="1" data-value="beer_in_cafe">
+				<input type="button" name="alcohol" class="choice beer" value="2" data-value="beer_in_cafe">
+				<input type="button" name="alcohol" class="choice beer" value="3" data-value="beer_in_cafe">
+				<input type="button" name="alcohol" class="choice beer" value="4" data-value="beer_in_cafe">
+				<input type="button" name="alcohol" class="choice beer" value="5+" data-value="beer_in_cafe">
+				</div>
+
 				<h2>Please choose your average coffee consumption per day.</h2>
 				<label for="noCoffee">None</label>
 				<input type="radio" name="coffee" id="noCoffee" value="0" checked>
@@ -53,9 +76,12 @@
 				<input type="radio" name="alcohol" id="lotsAlcohol" value="4">	
 			</div>
 
-			<div class = "choicesContainer">
+			<div>
+				<h3>Choose your accommodation.</h3>
+				<div class="choicesContainer">
 				<input type="button" name="stayStyle" class="choice housing active" value="Airbnb" data-value="airbnb_median" checked>
 				<input type="button" name="stayStyle" class="choice housing" value="Hotel" data-value="hotel">
+				</div>
 			</div>
 
 			<div>
