@@ -121,6 +121,14 @@ header {
 .secondScreen, .results {
   display: none;
 }
+
+.results {
+	background: $accentColor;
+	p {
+		margin: 0;
+		padding: 20px;
+	}
+}
 .secondScreen {
 	text-align: center;
 }
