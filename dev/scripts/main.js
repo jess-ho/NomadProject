@@ -115,7 +115,7 @@ nomadApp.events = function() {
 	$('.headerNext').on('click', function(e){
 		e.preventDefault();
 		$('.firstScreen').hide();
-		$('.secondScreen').show();
+		$('.secondScreen').css('display', 'flex').show();
 	})
 		$(".headerNext").hover(function(){
 		$(this).toggleClass("is-active");
@@ -129,6 +129,10 @@ nomadApp.events = function() {
 		$('.secondScreen').hide();
 		$('.firstScreen').show();
 	})
+	$(".headerBack").hover(function(){
+		$(this).toggleClass("is-active");
+})		
+
 
 	$('.housing').click(function() {
 		$('.housing').removeClass('active');
@@ -142,6 +146,9 @@ nomadApp.events = function() {
 		nomadApp.cityName = $('#city').val();
 		nomadApp.getCityInfo(nomadApp.cityName);
 	});
+	$(".submitButton").hover(function(){
+		$(this).toggleClass("is-active");
+})	
 
 	$('#budget').on('change', function() {
 		if ($('#budget').val() !== '') {

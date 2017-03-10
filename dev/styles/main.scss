@@ -8,7 +8,7 @@ $accentColor: #FAA71A;
 
 h1, h2, h3 {
 	font-family: 'Quicksand', sans-serif;
-	color: $darkColor;
+	color: #fff;
 	text-align: center;
 	letter-spacing: 3px;
 }	
@@ -18,11 +18,21 @@ h3{
 
 p{
 	font-family: 'Roboto', sans-serif;
-	color: $mediumColor;
+	color: #fff;
 	font-size: 18px;
 	line-height: 1.7;
 	text-align: center;
 	letter-spacing: 3px;
+}
+
+label{
+	color: $mediumColor;
+	font-family: 'Roboto', sans-serif;
+	font-size: 18px;
+	line-height: 1.7;
+	text-align: center;
+	letter-spacing: 3px;
+
 }
 
 .js-example-basic-single {
@@ -41,37 +51,43 @@ p{
 	background-color: $accentColor;
 }
 
+.firstScreen{
+	display: flex;
+}
+
 .secondScreen, .results{
   display:none;
 }
 
-.dropDown{
-	text-align: center;
-}
-
-.firstScreen{
+header{
 	background-image: url(../../assets/firstHero.jpg);
 	background-size: cover;
 	background-repeat: no-repeat;
-	height:95vh;
+	height:100vh;
 	background-position: center;
-	display: flex;
+	min-height: 650px;
+	
+}
+
+.firstScreen, .secondScreen{
 	flex-direction: column; 
 	justify-content: center;
 	align-items: center;
-	min-height: 650px;
+	background-color: rgba(0,0,0,0.6);
+	height: 100vh;
 }
 
 .firstScreen img {
 	width: 100px;
 } 
 
-.headerNext{
+.headerNext, .submitButton, .headerBack{
 	background-color: $accentColor;
 	color: #fff;
 	font-family: 'Roboto', sans-serif;
 	font-size: 18px;
 	border-radius: 3%;
+	border:none;
 	width:200px;
 	text-transform: uppercase;
 	text-align: center;
@@ -80,6 +96,7 @@ p{
 	transition: all .5s ease;
 	margin:15px;
 }
+
 
 .is-active {
 	box-shadow: 0 25px 15px -15px rgba(#000, 1);
@@ -92,6 +109,10 @@ p{
 	padding:0;
 	margin: 0 auto;
 	font-size: 10px;
+}
+
+.secondScreen {
+	text-align:center;
 }
 
 .choicesContainer {
@@ -128,11 +149,4 @@ p{
 	background: $accentColor;
 }
 
-footer{
-	// background-color: $accentColor;
-}
-footer p{
-	margin:0;
-	padding:0;
-}
 
