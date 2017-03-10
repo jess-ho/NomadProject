@@ -67,9 +67,9 @@ nomadApp.getCityInfo = function(cityName) {
 
 		// url for image
 		if (cityOptions.result[0] !== undefined) {
-			var cityImage1000 = `https://nomadlist.com${cityOptions.result[0].media.image["1000"]}`;
+			var cityImage1500 = `https://nomadlist.com${cityOptions.result[0].media.image["1500"]}`;
 		} else {
-			var cityImage1000 = 'https://unsplash.it/1000'
+			var cityImage1500 = 'https://unsplash.it/1000'
 		}
 
 		// total budget 
@@ -114,6 +114,17 @@ nomadApp.getCityInfo = function(cityName) {
 		// the cost of travel per day in selected city
 		else {
 			$('.results').html(`
+
+				<p>You can stay in <span class="capitalize">${cityCleanName.replace(/-/g, " ")}</span> for ${totalDays} days based on your selected style of travel</p>
+				`);
+			$('.cityDetails').append($("<div>").css({
+				'background': `url(${cityImage1500})`,
+				'background-size': 'cover', 
+				'background-position': 'center', 
+				'width': '1000px',
+				'height': '500px'
+			}))
+
 				<p>You can stay in <span class="capitalize">${cityCleanName.replace(/-/g, " ")}</span> for ${totalDays} days based on your selected style of travel.</p>
 				<div class="result-details"></div>
 				<div>
@@ -127,7 +138,8 @@ nomadApp.getCityInfo = function(cityName) {
 				</div>
 				`);
 
-			$('.result-details').css('background', `url('${cityImage1000}') no-repeat`);
+	
+
 		}
 	})
 }
