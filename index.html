@@ -17,66 +17,76 @@
 		<p>created in colaboration with Nick Evans, Jessica Ho, and Michelle Payne with the Nomadlist API</p>
 		<p>Icons provided by the Font Awesome and the Noun Project created by B Farias</p>
 	</div>
-	<form action="" id="cityInput">
+	<div class="wrapper">
+		<form action="" id="cityInput">
 
-		<div class="firstScreen">	
-			<img src="assets/nounProject.svg" alt="a paper airplane">
-			<h1>Plan your next adventure!</h1>
-			<h2>What city would you like to visit?</h2>
-			<select class="js-example-basic-single" name="" id="city">
-			<option value="" disabled selected> Pick a City</option>
-			</select>
-			<button class="headerNext">Next</button>
-		</div>
-		
+			<div class="firstScreen current">	
+				<img src="assets/nounProject.svg" alt="a paper airplane">
+				<h1>Plan your next adventure!</h1>
+				<!-- <h2>What city would you like to visit?</h2> -->
+				<div class="searchBar">
+					<select class="js-example-basic-single" name="" id="city">
+					<option value="" disabled selected> Pick a City</option>
+					</select>
+					<button class="headerNext">Next</button>
+				</div>
+			</div>
 			
-		<!-- end of first screen -->
+				
+			<!-- end of first screen -->
 
-		<div class="secondScreen">
-			<h2>The details...</h2>
-			<div class="coffeeConsumption">	
-				<h2>Please choose your average coffee consumption per day.</h2>
-				<div class="choicesContainer">
-					<input type="button" name="coffee" class="choice cafe active" value="0" data-value="0">
-					<input type="button" name="coffee" class="choice cafe" value="1" data-value="1" checked>
-					<input type="button" name="coffee" class="choice cafe" value="2" data-value="2">
-					<input type="button" name="coffee" class="choice cafe" value="3" data-value="3">
-					<input type="button" name="coffee" class="choice cafe" value="4" data-value="4">
-					<input type="button" name="coffee" class="choice cafe" value="5+" data-value="5">
+			<div class="secondScreen">
+				<h2>The details...</h2>
+				<div class="coffeeConsumption">	
+					<h2>Please choose your average coffee consumption per day.</h2>
+					<div class="choicesContainer">
+						<input type="button" name="coffee" class="choice cafe active" value="0" data-value="0">
+						<input type="button" name="coffee" class="choice cafe" value="1" data-value="1" checked>
+						<input type="button" name="coffee" class="choice cafe" value="2" data-value="2">
+						<input type="button" name="coffee" class="choice cafe" value="3" data-value="3">
+						<input type="button" name="coffee" class="choice cafe" value="4" data-value="4">
+						<input type="button" name="coffee" class="choice cafe" value="5+" data-value="5">
+					</div>
+				</div>
+
+				<div class="alcoholConsumption">
+					<h2>Please choose your average alcohol consumption per day.</h2>
+					<div class="choicesContainer">
+						<input type="button" name="alcohol" class="choice beer active" value="0" data-value="0">
+						<input type="button" name="alcohol" class="choice beer" value="1" data-value="1">
+						<input type="button" name="alcohol" class="choice beer" value="2" data-value="2">
+						<input type="button" name="alcohol" class="choice beer" value="3" data-value="3">
+						<input type="button" name="alcohol" class="choice beer" value="4" data-value="4">
+						<input type="button" name="alcohol" class="choice beer" value="5+" data-value="5">
+					</div>
+				</div>
+				<div class="buttons">
+					<button class="headerBack">Go Back</button>
+					<button class="headerNext">Next</button>
+				</div>
+			</div>	
+			<div class="thirdScreen">
+				<div class="housingOption">
+					<h2>Choose your accommodation.</h2>
+					<div class="choicesContainer">
+						<input type="button" name="stayStyle" class="choice housing active" value="Airbnb" data-value="airbnb_median" checked>
+						<input type="button" name="stayStyle" class="choice housing" value="Hotel" data-value="hotel">
+					</div>
+				</div>
+
+				<div class="budgetOption">
+					<h2>What is your total budget for this trip?</h2>
+					<input type="number" placeholder="$USD" id="budget">
+				</div>
+				<div class="buttons">
+					<button class="headerBack">Go Back</button>
+					<input type="submit" value="SUBMIT ME" class="submitButton" disabled>
+					<input type="button" value="start over" class="resetButton">
 				</div>
 			</div>
 
-			<div class="alcoholConsumption">
-				<h2>Please choose your average alcohol consumption per day.</h2>
-				<div class="choicesContainer">
-					<input type="button" name="alcohol" class="choice beer active" value="0" data-value="0">
-					<input type="button" name="alcohol" class="choice beer" value="1" data-value="1">
-					<input type="button" name="alcohol" class="choice beer" value="2" data-value="2">
-					<input type="button" name="alcohol" class="choice beer" value="3" data-value="3">
-					<input type="button" name="alcohol" class="choice beer" value="4" data-value="4">
-					<input type="button" name="alcohol" class="choice beer" value="5+" data-value="5">
-				</div>
-			</div>
-
-			<div>
-				<h2>Choose your accommodation.</h2>
-				<div class="choicesContainer">
-					<input type="button" name="stayStyle" class="choice housing active" value="Airbnb" data-value="airbnb_median" checked>
-					<input type="button" name="stayStyle" class="choice housing" value="Hotel" data-value="hotel">
-				</div>
-			</div>
-
-			<div>
-				<h2>What is your total budget for this trip?</h2>
-				<input type="number" placeholder="$ Total Budget" id="budget">
-			</div>
-			<div class="buttons">
-				<button class="headerBack">Go Back</button>
-				<input type="submit" value="SUBMIT ME" class="submitButton" disabled>
-			</div>
-		</div>	
-		<!-- end of second screen -->
-	</form>
+		</form>
+	</div>
 </header>
 
 <!-- this is where the results will be shown -->

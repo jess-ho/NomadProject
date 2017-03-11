@@ -137,23 +137,20 @@ nomadApp.events = function() {
 	// when form is submitted
 	$('.headerNext').on('click', function(e){
 		e.preventDefault();
-		$('.firstScreen').hide();
-		$('.secondScreen').css('display', 'flex').show();
+		$('.current').removeClass('current').hide().next().fadeIn().addClass('current')
 	})
 
-	$(".headerNext").hover(function(){
-		$(this).toggleClass("is-active");
-	})
+		$(".headerNext").hover(function(){
+			$(this).toggleClass("is-active");
+		})
 
 	$('.headerBack').on('click', function(e) {
 		e.preventDefault();
-		location.reload();
-		$('.secondScreen').hide();
-		$('.firstScreen').show();
+		$('.current').removeClass('current').hide().prev().fadeIn().addClass('current')
 	})
-	$(".headerBack").hover(function(){
-		$(this).toggleClass("is-active");
-	})		
+		$(".headerBack").hover(function(){
+			$(this).toggleClass("is-active");
+		})		
 
 
 	$('.housing').click(function() {
@@ -177,10 +174,20 @@ nomadApp.events = function() {
 		// get city name
 		nomadApp.cityName = $('#city').val();
 		nomadApp.getCityInfo(nomadApp.cityName);
+		$('.headerBack').hide();
+		$('.submitButton').hide();
+		$('.resetButton').fadeIn();
 	});
-	$(".submitButton").hover(function(){
-		$(this).toggleClass("is-active");
-})	
+		$(".submitButton").hover(function(){
+			$(this).toggleClass("is-active");
+		})
+
+	$('.resetButton').on('click', function() {
+		location.reload();
+	})	
+		$(".resetButton").hover(function(){
+			$(this).toggleClass("is-active");
+		})	
 
 	$('#budget').on('keydown', function() {
 		if ($('#budget').val() !== '') {
