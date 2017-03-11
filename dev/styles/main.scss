@@ -14,12 +14,13 @@ h1, h2, h3 {
 }	
 
 h1 {
-	margin-bottom: 10px;
+	margin: 10px 0 20px;
 }
 
 h2{
-	margin:10px;
-  
+	margin: 10px 0;
+	font-size: 20px;
+	font-weight: 100;
 }
 p {
 	font-family: 'Roboto', sans-serif;
@@ -37,20 +38,23 @@ label {
 	text-align: center;
 	letter-spacing: 3px;
 }
-.headerNext, .submitButton, .headerBack {
+.headerNext, .submitButton, .headerBack, .resetButton {
 	background-color: $accentColor;
 	color: #fff;
 	font-family: 'Roboto', sans-serif;
 	font-size: 18px;
-	border-radius: 3%;
+	border-radius: 3px;
+	border-bottom-left-radius: 0;
+	border-top-left-radius: 0;
 	border: none;
 	width: 200px;
+	height: 50px;
+	padding: 0;
 	text-transform: uppercase;
 	text-align: center;
 	letter-spacing: 3px;
-	padding: 10px 20px;
 	transition: all .5s ease;
-	margin: 15px;
+	// margin: 15px;
 	outline: none;
 }
 .is-active {
@@ -60,6 +64,16 @@ label {
 	color: $accentColor;
 	border: none;
 	outline: none;
+}
+
+.wrapper {
+	width: 90%;
+	max-width: 1400px;
+	margin: 0 auto;
+}
+input {
+	font-size: 18px;
+	letter-spacing: 1px;
 }
 // end of base styling
 // header styling
@@ -73,6 +87,11 @@ header {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+}
+.searchBar {
+	display: flex;
+	width: 80%;
+	padding: 10px 0;
 }
 .fa-info-circle:before {
 	position: absolute;
@@ -92,16 +111,14 @@ header {
 		display: none
 	}
 }
-.firstScreen img {
-	width: 75px;
-} 
 .js-example-basic-single {
-	width: 370px;
+	width: 100%;
 	margin: 20px;
 	text-align: center;
 	background: transparent;
 	appearance: none;
 	font-size: 20px;
+	border-radius: 0;
 }
 #select2-city-container {
 	color: $darkColor;
@@ -110,33 +127,41 @@ header {
 	padding: 10px 5px;
 	text-transform: capitalize;
 }
+form {
+	max-width: 850px;
+	margin: 0 auto;
+}
 .firstScreen {
 	display: flex;
+	transform: translateY(-20%);
+	img {
+		width: 60px
+	}
 }
-.firstScreen, .secondScreen {
+
+.firstScreen, .secondScreen, .thirdScreen {
 	flex-direction: column; 
 	justify-content: center;
 	align-items: center;
 }
-.secondScreen, .results {
+.secondScreen, .thirdScreen, .results, .resetButton {
   display: none;
 }
-
-.results {
-	background: $accentColor;
-	p {
-		margin: 0;
-		padding: 20px;
-	}
+.current {
+	display: flex;
 }
-.secondScreen {
+.coffeeConsumption, .alcoholConsumption, .housingOption, .budgetOption {
+	margin: 40px 0;
+}
+.secondScreen, .thirdScreen {
 	text-align: center;
 }
 .choicesContainer {
 	border: 3px solid lightgrey;
 	display: inline-flex;
 	border-radius: 3px;
-	max-width: 500px;
+	width: 80%;
+	margin: 0 auto;
 }
 .choice {
 	height: 100%;
@@ -155,12 +180,20 @@ header {
 		border-color: rgba(68,108,179, 0.5);
 		cursor: pointer;
 	}
-	.housing {
-		width: 50%;
-	}
+}
+.housing {
+	width: 50%;
+}
+.cafe, .beer {
+	width: 16.8%;
+}
+#budget {
+	width: 200px;
+	padding: 10px;
 }
 .buttons {
 	display: flex;
+	justify-content: space-around;
 	border: none;
 	outline: none;
 }
@@ -183,4 +216,11 @@ header {
 
 .results .result-details {
 	background-size: cover;
+}
+.results {
+	background: $accentColor;
+	p {
+		margin: 0;
+		padding: 20px;
+	}
 }
