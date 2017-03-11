@@ -7,8 +7,6 @@ nomadApp.client = 'hackeryou'
 // where the city name is recorded
 nomadApp.cityName;
 
-// nomadApp.cityCleanName;
-
 // ajax call that populates the drop-down menu
 nomadApp.getCity = function() {
 	$.ajax({
@@ -64,7 +62,13 @@ nomadApp.getCityInfo = function(cityName) {
 		if (cityOptions.result[0] !== undefined) {
 			var nomadCost = cityOptions.result[0].cost.nomad.USD;
 		} 
-
+		if (cityOptions.result[0] !== undefined) {
+			var wifiSpeed = cityOptions.result[0].info.internet.speed.download;
+		}
+		if (cityOptions.result[0] !== undefined) {
+			var weatherAverage = cityOptions.result[0].info.weather.temperature.celsius;
+		}
+		var cityImageName = cityOptions.result[0].info.city.name;
 		// url for image
 		if (cityOptions.result[0] !== undefined) {
 			var cityImage1500 = `https://nomadlist.com${cityOptions.result[0].media.image["1500"]}`;
@@ -83,8 +87,8 @@ nomadApp.getCityInfo = function(cityName) {
 		var coffee = $('.cafe.active').data('value');
 
 		// calculating individual costs per day 
-		var alcoholPerDay = (alcohol * beerCost);
-		var coffeePerDay = (coffee * coffeeCost);
+		var alcoholPerDay = Math.round((alcohol * beerCost) * 100) / 100;
+		var coffeePerDay = Math.round((coffee * coffeeCost) * 100) / 100;
 		// radio button for hotel or airbnb
 		if (stay === 'airbnb_median') {
 			var stayCost =  airbnbCost;
@@ -92,7 +96,7 @@ nomadApp.getCityInfo = function(cityName) {
 			var stayCost =  hotelCost;
 		}
 
-		var foodCost = ((nomadCost / 30) - hotelCost);
+		var foodCost = Math.round(((nomadCost / 30) - hotelCost) * 100) / 100;
 
 		// calculating total costs per day
 		var totalDays = Math.floor(budget / (foodCost + stayCost + alcoholPerDay + coffeePerDay));
@@ -117,18 +121,27 @@ nomadApp.getCityInfo = function(cityName) {
 
 				<p>You can stay in <span class="capitalize">${cityCleanName.replace(/-/g, " ")}</span> for ${totalDays} days based on your selected style of travel</p>
 				`);
-			$('.cityDetails').append($("<div>").css({
+
+			$('.cityImage').css({
 				'background': `url(${cityImage1500})`,
 				'background-size': 'cover', 
 				'background-position': 'center', 
 				'width': '1000px',
 				'height': '500px'
-			}))
+			});
 
-				
+			$('#coffeeCost').text(`$${coffeePerDay} / day`);
+			$('#alcoholCost').text(`$${alcoholPerDay} / day`);
+			$('#foodCost').text(`$${foodCost} / day`);
+			$('#stayCost').text(`$${stayCost} / night`);
+			if (wifiSpeed !== 0) {
+				$('#wifiSpeed').text(`${wifiSpeed} / mbps`);
+			} else {
+				$('.wifiDetails').hide();
+			}
+			$('#weatherAverage').text(`${weatherAverage} degree celsius`);
 
-	
-
+			$('.cityName').text(cityImageName);
 		}
 	})
 }

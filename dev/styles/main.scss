@@ -229,3 +229,37 @@ form {
 		padding: 20px;
 	}
 }
+
+.cityContainer {
+	display: flex;
+	border: 1px solid red;
+}
+
+.cityImage {
+	width: 70%;
+}
+
+.detailContainer{
+	width: 30%;
+	padding: 20px;
+
+	i {
+		width: 20px;
+		text-align: center;
+		color: $darkColor;
+	}
+
+	 p {
+		display: inline;
+		color: $darkColor;
+	}
+}
+
+.cityName {
+	padding: 20px;
+	background-color: rgba(255,255,255,0.8);
+	margin: 0;
+	color: $darkColor;
+	text-transform: uppercase;
+	font-size: 35px;
+}
