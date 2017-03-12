@@ -263,3 +263,20 @@ form {
 	text-transform: uppercase;
 	font-size: 35px;
 }
+
+.airplane {
+	position: relative;
+	animation: fly 4s ease;
+}
+
+@keyframes fly {
+	0% {
+		left: -55vw;
+		top: 100vh;
+	}
+	
+	100% {
+		left: 0;
+		top: 0;
+	}
+}
