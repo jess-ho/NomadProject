@@ -106,7 +106,7 @@ nomadApp.getCityInfo = function(cityName) {
 		// if initial costs from api are undefined... 
 		if (airbnbCost === undefined && beerCost === undefined && coffeeCost === undefined && hotelCost === undefined) {
 			$('.results').html(`
-				<p>${cityCleanName.replace(/-/g, " ")}'s information is currently unavailable.</p>
+				<p><span class="capitalize">${cityCleanName.replace(/-/g, " ")}'s</span> information is currently unavailable.</p>
 				`);
 			$('.cityDetails').hide();
 		}
@@ -120,7 +120,7 @@ nomadApp.getCityInfo = function(cityName) {
 		else {
 			$('.results').html(`
 
-				<p>You can stay in <span class="capitalize">${cityCleanName.replace(/-/g, " ")}</span> for ${totalDays} days based on your selected style of travel</p>
+				<p>You can stay in <span class="capitalize highlight">${cityCleanName.replace(/-/g, " ")}</span> for <span class="highlight">${totalDays} days</span> based on your selected style of travel</p>
 				`);
 
 			$('.cityImage').append($(`<img src='${cityImage1500}'>`)).css('width', '100%');
@@ -133,7 +133,7 @@ nomadApp.getCityInfo = function(cityName) {
 			} else {
 				$('.wifiDetails').hide();
 			}
-			$('#weatherAverage').text(`${weatherAverage} degree celsius`);
+			$('#weatherAverage').text(`${weatherAverage}ºC`);
 
 			$('.cityName').text(cityImageName);
 		}
@@ -199,14 +199,22 @@ nomadApp.events = function() {
 			$(this).toggleClass("is-active");
 		})	
 
-	$('#budget').on('keydown', function() {
+	$('#budget').on('change', function() {
 		if ($('#budget').val() !== '') {
 			$('.submitButton').removeAttr('disabled');
 		}
 	})
-	$('.fa-info-circle').on('click', function() {
+	$('.firstToggle').on('click', function() {
 		$('.credits p').toggle('fadeIn');
 	})
+
+	$('.housingToggle').on('click', function() {
+		$('.accommodationMoreInfo').toggle('fadeIn');
+	})
+	$('.budgetToggle').on('click', function() {
+		$('.budgetMoreInfo').toggle('fadeIn');
+	})
+
 
 	$('.airplane').one('animationend', function() {
 		$(this).css('opacity', '1');

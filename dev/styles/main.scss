@@ -19,7 +19,7 @@ h1 {
 
 h2{
 	margin: 10px 0;
-	font-size: 20px;
+	font-size: 24px;
 	font-weight: 100;
 }
 p {
@@ -42,7 +42,7 @@ label {
 	background-color: $accentColor;
 	color: #fff;
 	font-family: 'Roboto', sans-serif;
-	font-size: 18px;
+	font-size: 14px;
 	border-radius: 3px;
 	border-bottom-left-radius: 0;
 	border-top-left-radius: 0;
@@ -65,7 +65,7 @@ label {
 }
 
 .special{
-	font-size: 11px;
+	font-size: 16px;
 
 }
 
@@ -96,7 +96,7 @@ header {
 	width: 80%;
 	padding: 10px 0;
 }
-.fa-info-circle:before {
+.fa-info-circle {
 	position: absolute;
 	color: $accentColor;
 	font-size: 30px;
@@ -125,6 +125,7 @@ header {
 }
 #select2-city-container {
 	color: $darkColor;
+	text-transform: capitalize;
 }
 .select2-results__options li {
 	padding: 10px 5px;
@@ -156,6 +157,30 @@ form {
 .coffeeConsumption, .alcoholConsumption, .housingOption, .budgetOption {
 	margin: 40px 0;
 }
+.housingOption, .budgetOption {
+	h2 i{
+		color: $accentColor;
+		position: static;
+		margin-left: 10px;
+	}
+}
+
+.accommodationMoreInfo {
+	display:none;
+	p {
+		font-size: 12px;
+	}
+} 
+
+.budgetMoreInfo {
+	display:none;
+	 p {
+		font-size: 12px;
+	}
+}
+
+
+
 .secondScreen, .thirdScreen {
 	text-align: center;
 }
@@ -209,6 +234,9 @@ form {
 
 .capitalize {
 	text-transform: capitalize;
+}
+.highlight{
+	color: $darkColor;
 }
 
 .results .result-details {

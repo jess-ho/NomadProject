@@ -12,7 +12,7 @@
 </head>
 <body>
 <header>
-	<i class="fa fa-info-circle" aria-hidden="true"></i>
+	<i class="fa fa-info-circle firstToggle" aria-hidden="true"></i>
 	<div class="credits">
 		<p>created in colaboration with Nick Evans, Jessica Ho, and Michelle Payne with the Nomadlist API</p>
 		<p>Icons provided by the Font Awesome and the Noun Project created by B Farias and Tong Chalita</p>
@@ -65,7 +65,7 @@
 			</div>	
 			<div class="thirdScreen">
 				<div class="housingOption">
-					<h2>Choose your accommodation.</h2>
+					<h2>Choose your accommodation.<i class="fa fa-info-circle housingToggle" aria-hidden="true"></i><div class="accommodationMoreInfo"><p>Hotel would be a single private hostel or hotel room in the center of the city</p></div></h2>
 					<div class="choicesContainer">
 						<input type="button" name="stayStyle" class="choice housing active" value="Airbnb" data-value="airbnb_median" checked>
 						<input type="button" name="stayStyle" class="choice housing" value="Hotel" data-value="hotel">
@@ -73,7 +73,7 @@
 				</div>
 
 				<div class="budgetOption">
-					<h2>What is your total budget for this trip?</h2>
+					<h2>What is your total budget for this trip?<i class="fa fa-info-circle budgetToggle" aria-hidden="true"></i><div class="budgetMoreInfo"><p>Total budget for your trip excluding flight costs</p></div></h2>
 					<input type="number" placeholder="$USD" id="budget">
 				</div>
 				<div class="buttons">
