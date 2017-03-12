@@ -73,7 +73,7 @@ nomadApp.getCityInfo = function(cityName) {
 		}
 		// url for image
 		if (cityOptions.result[0] !== undefined) {
-			var cityImage1500 = `https://nomadlist.com${cityOptions.result[0].media.image["1500"]}`;
+			var cityImage1500 = `https://nomadlist.com${cityOptions.result[0].media.image["1000"]}`;
 		} else {
 			var cityImage1500 = 'https://unsplash.it/1000'
 		}
@@ -125,11 +125,11 @@ nomadApp.getCityInfo = function(cityName) {
 
 			$('.cityImage').append($(`<img src='${cityImage1500}'>`)).css('width', '100%');
 
-			$('#coffeeCost').text(`$${coffeePerDay} / day`);
-			$('#alcoholCost').text(`$${alcoholPerDay} / day`);
-			$('#stayCost').text(`$${stayCost} / night`);
+			$('#coffeeCost').text(`$${coffeePerDay} /day`);
+			$('#alcoholCost').text(`$${alcoholPerDay} /day`);
+			$('#stayCost').text(`$${stayCost} /night`);
 			if (wifiSpeed !== 0) {
-				$('#wifiSpeed').text(`${wifiSpeed} / mbps`);
+				$('#wifiSpeed').text(`${wifiSpeed} /mbps`);
 			} else {
 				$('.wifiDetails').hide();
 			}
@@ -184,6 +184,9 @@ nomadApp.events = function() {
 		$('.headerBack').hide();
 		$('.resetButton').fadeIn();
 		$('.cityDetails').fadeIn();
+		$('html, body').animate({
+			scrollTop: $('.results').offset().top
+		}, 1000);
 	});
 		$(".submitButton").hover(function(){
 			$(this).toggleClass("is-active");

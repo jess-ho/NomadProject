@@ -15,7 +15,7 @@
 	<i class="fa fa-info-circle" aria-hidden="true"></i>
 	<div class="credits">
 		<p>created in colaboration with Nick Evans, Jessica Ho, and Michelle Payne with the Nomadlist API</p>
-		<p>Icons provided by the Font Awesome and the Noun Project created by B Farias</p>
+		<p>Icons provided by the Font Awesome and the Noun Project created by B Farias and Tong Chalita</p>
 	</div>
 	<div class="wrapper">
 		<form action="" id="cityInput">
@@ -99,7 +99,8 @@
 		</div>
 
 		<div class="detailContainer">
-			<h3 class="cityName"></h3>
+			<img class="stamp" src="assets/stamp.svg" alt="a black and white stamp"><h3 class="cityName"></h3>
+
 			<div class="coffeeDetails">
 				<i class="fa fa-coffee" aria-hidden="true"></i>
 				<p id="coffeeCost"></p>
@@ -129,5 +130,20 @@
 	
 		
 	<script src="dev/scripts/main.js"></script>
+	<script>$(function() {
+     $('a[href*="#"]:not([href="#"])').click(function() {
+       if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+         var target = $(this.hash);
+         target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+         if (target.length) {
+           $('html, body').animate({
+             scrollTop: target.offset().top
+           }, 1000);
+           return false;
+         }
+       }
+     });
+    });
+    </script>
 </body>
 </html>
