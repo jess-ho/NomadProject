@@ -149,7 +149,7 @@ form {
 	justify-content: center;
 	align-items: center;
 }
-.secondScreen, .thirdScreen, .results, .resetButton {
+.secondScreen, .thirdScreen, .results, .cityDetails, .resetButton {
   display: none;
 }
 .current {
@@ -162,7 +162,7 @@ form {
 	text-align: center;
 }
 .choicesContainer {
-	border: 3px solid lightgrey;
+	border: 3px solid $lightColor;
 	display: inline-flex;
 	border-radius: 3px;
 	width: 80%;
@@ -174,7 +174,7 @@ form {
 	font-size: 16px;
 	border: none;
 	background: white;
-	border-right: 1px solid lightgrey;
+	border-right: 1px solid $lightColor;
 	text-transform: capitalize;
 	letter-spacing: 1px;
 	&:last-of-type {
@@ -233,10 +233,27 @@ form {
 .cityContainer {
 	display: flex;
 	border: 1px solid red;
+	max-height: 600px;
+	overflow: hidden;
 }
 
 .cityImage {
 	width: 70%;
+	z-index: 99; 
+	position: relative;
+	p {
+		position: absolute;
+		top: 40%;
+		left: 40%;
+		transform: translate(50% -50%);
+		color: red;
+		z-index: -1;
+		text-align: center;
+	}
+	img {
+		max-width: 100%;
+		display: block;
+	}
 }
 
 .detailContainer{
@@ -254,10 +271,11 @@ form {
 		color: $darkColor;
 	}
 }
-
+.cityDetails {
+	padding: 60px 0;
+}
 .cityName {
 	padding: 20px;
-	background-color: rgba(255,255,255,0.8);
 	margin: 0;
 	color: $darkColor;
 	text-transform: uppercase;
