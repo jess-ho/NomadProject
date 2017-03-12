@@ -204,6 +204,10 @@ nomadApp.events = function() {
 	$('.fa-info-circle').on('click', function() {
 		$('.credits p').toggle('fadeIn');
 	})
+
+	$('.airplane').one('animationend', function() {
+		$(this).css('opacity', '1');
+	})
 }
 
 nomadApp.init = function () {
