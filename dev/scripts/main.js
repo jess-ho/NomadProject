@@ -208,13 +208,13 @@ nomadApp.events = function() {
 		$('.credits p').toggle('fadeIn');
 	})
 
+
 	$('.housingToggle').on('click', function() {
 		$('.accommodationMoreInfo').toggle('fadeIn');
 	})
 	$('.budgetToggle').on('click', function() {
 		$('.budgetMoreInfo').toggle('fadeIn');
 	})
-
 
 	$('.airplane').one('animationend', function() {
 		$(this).css('opacity', '1');
