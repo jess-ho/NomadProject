@@ -285,16 +285,24 @@ form {
 .airplane {
 	position: relative;
 	animation: fly 4s ease;
+	animation-delay: 1s;
+	opacity: 0;
 }
 
 @keyframes fly {
 	0% {
 		left: -55vw;
-		top: 100vh;
+		top: 60vh;
+		opacity: 0;
+	}
+
+	2% {
+		opacity: 1;
 	}
 	
 	100% {
 		left: 0;
 		top: 0;
+		opacity: 1;
 	}
 }
