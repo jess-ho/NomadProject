@@ -1,16 +1,20 @@
-@import "setup";
-@import "selectButtonStyle";
+@import "partials/setup";
+@import "partials/selectButtonStyle";
 
 // variables
 $darkColor: #3C434D;
 $mediumColor: #7C838E;
 $lightColor: #C3B9B0;
 $accentColor: #FAA71A;
+
 // base styling
+html {
+	text-align: center;
+}
+
 h1, h2, h3 {
 	font-family: 'Quicksand', sans-serif;
 	color: #fff;
-	text-align: center;
 }	
 
 h1 {
@@ -27,7 +31,6 @@ p {
 	color: #fff;
 	font-size: 20px;
 	line-height: 1.7;
-	text-align: center;
 	letter-spacing: 3px;
 }
 label {
@@ -35,7 +38,6 @@ label {
 	font-family: 'Roboto', sans-serif;
 	font-size: 20px;
 	line-height: 1.7;
-	text-align: center;
 	letter-spacing: 3px;
 }
 .headerNext, .submitButton, .headerBack, .resetButton {
@@ -51,7 +53,6 @@ label {
 	height: 50px;
 	padding: 0;
 	text-transform: uppercase;
-	text-align: center;
 	letter-spacing: 3px;
 	transition: all .5s ease;
 }
@@ -66,7 +67,6 @@ label {
 
 .special{
 	font-size: 16px;
-
 }
 
 .wrapper {
@@ -79,6 +79,7 @@ input {
 	letter-spacing: 1px;
 }
 // end of base styling
+
 // header styling
 header {
 	background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(../../assets/firstHero.jpg);
@@ -93,6 +94,7 @@ header {
 }
 .searchBar {
 	display: flex;
+	justify-content: center;
 	width: 80%;
 	padding: 10px 0;
 }
@@ -102,6 +104,7 @@ header {
 	font-size: 30px;
 	top: 10px;
 	left: 10px;
+	cursor: pointer;
 }
 .credits {
 	position: absolute;
@@ -117,7 +120,6 @@ header {
 .js-example-basic-single {
 	width: 100%;
 	margin: 20px;
-	text-align: center;
 	background: transparent;
 	appearance: none;
 	font-size: 20px;
@@ -126,6 +128,7 @@ header {
 #select2-city-container {
 	color: $darkColor;
 	text-transform: capitalize;
+	text-align: left;
 }
 .select2-results__options li {
 	padding: 10px 5px;
@@ -135,9 +138,10 @@ form {
 	max-width: 850px;
 	margin: 0 auto;
 }
+
 .firstScreen {
 	display: flex;
-	transform: translateY(-20%);
+	transform: translateY(-10%);
 	img {
 		width: 60px
 	}
@@ -179,11 +183,6 @@ form {
 	}
 }
 
-
-
-.secondScreen, .thirdScreen {
-	text-align: center;
-}
 .choicesContainer {
 	border: 3px solid $lightColor;
 	display: inline-flex;
@@ -193,13 +192,15 @@ form {
 }
 .choice {
 	height: 100%;
-	padding: 10px 20px;
+	padding: 10px 0;
 	font-size: 16px;
 	border: none;
 	background: white;
 	border-right: 1px solid $lightColor;
 	text-transform: capitalize;
 	letter-spacing: 1px;
+	display: block;
+
 	&:last-of-type {
 		border-right: none;
 	}
@@ -270,12 +271,11 @@ form {
 	overflow: hidden;
 	p {
 		position: absolute;
-		top: 40%;
-		left: 40%;
-		transform: translate(50% -50%);
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
 		color: red;
 		z-index: -1;
-		text-align: center;
 	}
 	img {
 		display: block;
@@ -287,13 +287,13 @@ form {
 .detailContainer{
 	width: 30%;
 	padding: 20px;
+	text-align: left;
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
 
 	i {
 		width: 20px;
-		text-align: center;
 		color: $darkColor;
 		margin-right: 5px;
 	}
@@ -324,8 +324,8 @@ form {
 
 .airplane {
 	position: relative;
-	animation: fly 4s ease;
-	animation-delay: 1s;
+	animation: fly 3s ease;
+	animation-delay: 2s;
 	opacity: 0;
 }
 
@@ -346,3 +346,5 @@ form {
 		opacity: 1;
 	}
 }
+
+@import "partials/media";

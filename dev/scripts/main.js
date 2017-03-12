@@ -74,9 +74,7 @@ nomadApp.getCityInfo = function(cityName) {
 		// url for image
 		if (cityOptions.result[0] !== undefined) {
 			var cityImage1500 = `https://nomadlist.com${cityOptions.result[0].media.image["1000"]}`;
-		} else {
-			var cityImage1500 = 'https://unsplash.it/1000'
-		}
+		} 
 
 		// total budget 
 		var budget = $('#budget').val();
@@ -123,7 +121,7 @@ nomadApp.getCityInfo = function(cityName) {
 				<p>You can stay in <span class="capitalize highlight">${cityCleanName.replace(/-/g, " ")}</span> for <span class="highlight">${totalDays} days</span> based on your selected style of travel</p>
 				`);
 
-			$('.cityImage').append($(`<img src='${cityImage1500}'>`)).css('width', '100%');
+			$('.cityImage').append($(`<img src='${cityImage1500}'>`));
 
 			$('#coffeeCost').text(`$${coffeePerDay} /day`);
 			$('#alcoholCost').text(`$${alcoholPerDay} /day`);
@@ -132,6 +130,7 @@ nomadApp.getCityInfo = function(cityName) {
 				$('#wifiSpeed').text(`${wifiSpeed} /mbps`);
 			} else {
 				$('.wifiDetails').hide();
+				$('.weatherDetails').addClass('showWeather');
 			}
 			$('#weatherAverage').text(`${weatherAverage}ºC`);
 

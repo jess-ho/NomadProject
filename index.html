@@ -15,7 +15,7 @@
 	<i class="fa fa-info-circle firstToggle" aria-hidden="true"></i>
 	<div class="credits">
 		<p>created in colaboration with Nick Evans, Jessica Ho, and Michelle Payne with the Nomadlist API</p>
-		<p>Icons provided by the Font Awesome and the Noun Project created by B Farias and Tong Chalita</p>
+		<p>Assets provided by the Noun Project created by B Farias and Tong Chalita</p>
 	</div>
 	<div class="wrapper">
 		<form action="" id="cityInput">
@@ -24,8 +24,8 @@
 				<img src="assets/nounProject.svg" alt="a paper airplane" class="airplane">
 				<h1>Plan your next adventure!</h1>
 				<div class="searchBar">
-					<select class="js-example-basic-single" name="" id="city">
-					<option value="" disabled selected> Pick a City</option>
+					<select class="js-example-basic-single" name="" id="city" required>
+						<option value="" disabled selected> Pick a City</option>
 					</select>
 					<button class="headerNext">Next</button>
 				</div>
@@ -74,7 +74,7 @@
 
 				<div class="budgetOption">
 					<h2>What is your total budget for this trip?<i class="fa fa-info-circle budgetToggle" aria-hidden="true"></i><div class="budgetMoreInfo"><p>Total budget for your trip excluding flight costs</p></div></h2>
-					<input type="number" placeholder="$USD" id="budget">
+					<input type="number" placeholder="$USD" id="budget" required>
 				</div>
 				<div class="buttons">
 					<button class="headerBack">Go Back</button>
@@ -101,6 +101,7 @@
 		<div class="detailContainer">
 			<img class="stamp" src="assets/stamp.svg" alt="a black and white stamp"><h3 class="cityName"></h3>
 
+			<div class="detailContainer_costs">
 			<div class="coffeeDetails">
 				<i class="fa fa-coffee" aria-hidden="true"></i>
 				<p id="coffeeCost"></p>
@@ -120,6 +121,7 @@
 			<div class="weatherDetails">
 				<i class="fa fa-thermometer-empty" aria-hidden="true"></i>
 				<p id="weatherAverage"></p>
+			</div>
 			</div>
 		</div>
 	</div>
