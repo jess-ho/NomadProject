@@ -19,7 +19,6 @@
 	</div>
 	<div class="wrapper">
 		<form action="" id="cityInput">
-
 			<div class="firstScreen current">	
 				<img src="assets/nounProject.svg" alt="a paper airplane" class="airplane">
 				<h1>Plan your next adventure!</h1>
@@ -31,8 +30,6 @@
 				</div>
 				<p class="special">We calculate how long you can travel to your desired city based on your travel habits</p>
 			</div>
-		
-
 			<div class="secondScreen">
 				<h2>The details...</h2>
 				<div class="coffeeConsumption">	
@@ -46,7 +43,6 @@
 						<input type="button" name="coffee" class="choice cafe" value="5+" data-value="5">
 					</div>
 				</div>
-
 				<div class="alcoholConsumption">
 					<h2>Please choose your average alcohol consumption per day.</h2>
 					<div class="choicesContainer">
@@ -71,7 +67,6 @@
 						<input type="button" name="stayStyle" class="choice housing" value="Hotel" data-value="hotel">
 					</div>
 				</div>
-
 				<div class="budgetOption">
 					<h2>What is your total budget for this trip?<i class="fa fa-info-circle budgetToggle" aria-hidden="true"></i><div class="budgetMoreInfo"><p>Total budget for your trip excluding flight costs</p></div></h2>
 					<input type="number" placeholder="$USD" id="budget" required>
@@ -80,27 +75,21 @@
 					<button class="headerBack">Go Back</button>
 					<input type="button" value="start over" class="resetButton">
 					<input type="submit" value="SUBMIT" class="submitButton" disabled>
-					
 				</div>
 			</div>
-
 		</form>
 	</div>
 </header>
-
 <section class="results">
 </section>
-
 <section class="cityDetails">
 <div class="wrapper">
 	<div class="cityContainer">
 		<div class="cityImage">
 			<p>No Image Available</p>
 		</div>
-
 		<div class="detailContainer">
 			<img class="stamp" src="assets/stamp.svg" alt="a black and white stamp"><h3 class="cityName"></h3>
-
 			<div class="detailContainer_costs">
 			<div class="coffeeDetails">
 				<i class="fa fa-coffee" aria-hidden="true"></i>
@@ -133,19 +122,19 @@
 		
 	<script src="dev/scripts/main.js"></script>
 	<script>$(function() {
-     $('a[href*="#"]:not([href="#"])').click(function() {
-       if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-         var target = $(this.hash);
-         target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-         if (target.length) {
-           $('html, body').animate({
-             scrollTop: target.offset().top
-           }, 1000);
-           return false;
-         }
-       }
-     });
-    });
-    </script>
+	$('a[href*="#"]:not([href="#"])').click(function() {
+		if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+		var target = $(this.hash);
+			target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+		if (target.length) {
+			$('html, body').animate({
+		 	scrollTop: target.offset().top
+			}, 1000);
+			return false;
+		}
+		}
+		});
+	});
+	</script>
 </body>
 </html>

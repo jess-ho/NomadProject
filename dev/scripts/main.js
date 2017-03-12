@@ -1,12 +1,9 @@
 var nomadApp = {}
-
 nomadApp.url = 'https://nomadlist.com/api/v2/list/cities/'
 nomadApp.key = 'EDcwZCGMD5gMmdWT3BrI'
 nomadApp.client = 'hackeryou'
-
 // where the city name is recorded
 nomadApp.cityName;
-
 // ajax call that populates the drop-down menu
 nomadApp.getCity = function() {
 	$.ajax({
@@ -18,10 +15,8 @@ nomadApp.getCity = function() {
 			key: nomadApp.key
 		}
 	}).then(function(cities) {
-
 		// $('select').css('text-transform','uppercase');
 		var eachCity = cities.result
-		
 		eachCity.forEach(function(city) {
 			// console.log(city)
 			var cityClean = city.replace(/-/g, " ");
@@ -29,7 +24,6 @@ nomadApp.getCity = function() {
 		})
 	})
 };
-
 // gets the costs and stuff from the city selected
 nomadApp.getCityInfo = function(cityName) {
 	$.ajax({
@@ -46,19 +40,15 @@ nomadApp.getCityInfo = function(cityName) {
 		if (cityOptions.result[0] !== undefined) {
 			var airbnbCost = cityOptions.result[0].cost.airbnb_median.USD;
 		} 
-
 		if (cityOptions.result[0] !== undefined) {
 			var hotelCost = cityOptions.result[0].cost.hotel.USD;
 		} 
-
 		if (cityOptions.result[0] !== undefined) {
 			var coffeeCost = cityOptions.result[0].cost.coffee_in_cafe.USD;
 		} 
-
 		if (cityOptions.result[0] !== undefined) {
 			var beerCost = cityOptions.result[0].cost.beer_in_cafe.USD;
 		} 
-
 		if (cityOptions.result[0] !== undefined) {
 			var nomadCost = cityOptions.result[0].cost.nomad.USD;
 		} 
@@ -75,17 +65,14 @@ nomadApp.getCityInfo = function(cityName) {
 		if (cityOptions.result[0] !== undefined) {
 			var cityImage1500 = `https://nomadlist.com${cityOptions.result[0].media.image["1000"]}`;
 		} 
-
 		// total budget 
 		var budget = $('#budget').val();
-
 		// airbnb or hotel
 		var stay = $('.housing.active').data('value');
 		// how many pints/day
 		var alcohol = $('.beer.active').data('value');
 		// how many cups/day
 		var coffee = $('.cafe.active').data('value');
-
 		// calculating individual costs per day 
 		var alcoholPerDay = Math.round((alcohol * beerCost) * 100) / 100;
 		var coffeePerDay = Math.round((coffee * coffeeCost) * 100) / 100;
@@ -95,12 +82,9 @@ nomadApp.getCityInfo = function(cityName) {
 		} else {
 			var stayCost =  hotelCost;
 		}
-
 		// calculating total costs per day
 		var totalDays = Math.floor(budget / (stayCost + alcoholPerDay + coffeePerDay));
-
 		var cityCleanName = nomadApp.cityName;
-
 		// if initial costs from api are undefined... 
 		if (airbnbCost === undefined && beerCost === undefined && coffeeCost === undefined && hotelCost === undefined) {
 			$('.results').html(`
@@ -117,12 +101,9 @@ nomadApp.getCityInfo = function(cityName) {
 		// the cost of travel per day in selected city
 		else {
 			$('.results').html(`
-
 				<p>You can stay in <span class="capitalize highlight">${cityCleanName.replace(/-/g, " ")}</span> for <span class="highlight">${totalDays} days</span> based on your selected style of travel</p>
 				`);
-
 			$('.cityImage').append($(`<img src='${cityImage1500}'>`));
-
 			$('#coffeeCost').text(`$${coffeePerDay} /day`);
 			$('#alcoholCost').text(`$${alcoholPerDay} /day`);
 			$('#stayCost').text(`$${stayCost} /night`);
@@ -133,47 +114,38 @@ nomadApp.getCityInfo = function(cityName) {
 				$('.weatherDetails').addClass('showWeather');
 			}
 			$('#weatherAverage').text(`${weatherAverage}ºC`);
-
 			$('.cityName').text(cityImageName);
 		}
 	})
 }
-
 nomadApp.events = function() {
 	// when form is submitted
 	$('.headerNext').on('click', function(e){
 		e.preventDefault();
 		$('.current').removeClass('current').hide().next().fadeIn(800).addClass('current')
 	})
-
-		$(".headerNext").hover(function(){
-			$(this).toggleClass("is-active");
+		$('.headerNext').hover(function(){
+			$(this).toggleClass('is-active');
 		})
-
 	$('.headerBack').on('click', function(e) {
 		e.preventDefault();
 		$('.current').removeClass('current').hide().prev().fadeIn().addClass('current')
 	})
-		$(".headerBack").hover(function(){
-			$(this).toggleClass("is-active");
+		$('.headerBack').hover(function(){
+			$(this).toggleClass('is-active');
 		})		
-
-
 	$('.housing').click(function() {
 		$('.housing').removeClass('active');
 		$(this).addClass('active');
 	})
-
 	$('.cafe').click(function() {
 		$('.cafe').removeClass('active');
 		$(this).addClass('active');
 	})
-
 	$('.beer').click(function() {
 		$('.beer').removeClass('active');
 		$(this).addClass('active');
 	})
-
 	$('form').on('submit', function(e) {
 		e.preventDefault();
 		$('.results').show();
@@ -187,17 +159,15 @@ nomadApp.events = function() {
 			scrollTop: $('.results').offset().top
 		}, 1000);
 	});
-		$(".submitButton").hover(function(){
+		$('.submitButton').hover(function(){
 			$(this).toggleClass("is-active");
 		})
-
 	$('.resetButton').on('click', function() {
 		location.reload();
 	})	
-		$(".resetButton").hover(function(){
-			$(this).toggleClass("is-active");
+		$('.resetButton').hover(function(){
+			$(this).toggleClass('is-active');
 		})	
-
 	$('#budget').on('change', function() {
 		if ($('#budget').val() !== '') {
 			$('.submitButton').removeAttr('disabled');
@@ -206,26 +176,21 @@ nomadApp.events = function() {
 	$('.firstToggle').on('click', function() {
 		$('.credits p').toggle('fadeIn');
 	})
-
-
 	$('.housingToggle').on('click', function() {
 		$('.accommodationMoreInfo').toggle('fadeIn');
 	})
 	$('.budgetToggle').on('click', function() {
 		$('.budgetMoreInfo').toggle('fadeIn');
 	})
-
 	$('.airplane').one('animationend', function() {
 		$(this).css('opacity', '1');
 	})
 }
-
 nomadApp.init = function () {
 	nomadApp.getCity()
 	nomadApp.events();
-	$(".js-example-basic-single").select2();
+	$('.js-example-basic-single').select2();
 }
-
 $(function() {
 	nomadApp.init();
 })
