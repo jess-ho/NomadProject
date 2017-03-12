@@ -12,10 +12,10 @@
 </head>
 <body>
 <header>
-	<i class="fa fa-info-circle" aria-hidden="true"></i>
+	<i class="fa fa-info-circle firstToggle" aria-hidden="true"></i>
 	<div class="credits">
 		<p>created in colaboration with Nick Evans, Jessica Ho, and Michelle Payne with the Nomadlist API</p>
-		<p>Icons provided by the Font Awesome and the Noun Project created by B Farias</p>
+		<p>Icons provided by the Font Awesome and the Noun Project created by B Farias and Tong Chalita</p>
 	</div>
 	<div class="wrapper">
 		<form action="" id="cityInput">
@@ -65,7 +65,7 @@
 			</div>	
 			<div class="thirdScreen">
 				<div class="housingOption">
-					<h2>Choose your accommodation.</h2>
+					<h2>Choose your accommodation.<i class="fa fa-info-circle housingToggle" aria-hidden="true"></i><div class="accommodationMoreInfo"><p>Hotel would be a single private hostel or hotel room in the center of the city</p></div></h2>
 					<div class="choicesContainer">
 						<input type="button" name="stayStyle" class="choice housing active" value="Airbnb" data-value="airbnb_median" checked>
 						<input type="button" name="stayStyle" class="choice housing" value="Hotel" data-value="hotel">
@@ -73,7 +73,7 @@
 				</div>
 
 				<div class="budgetOption">
-					<h2>What is your total budget for this trip?</h2>
+					<h2>What is your total budget for this trip?<i class="fa fa-info-circle budgetToggle" aria-hidden="true"></i><div class="budgetMoreInfo"><p>Total budget for your trip excluding flight costs</p></div></h2>
 					<input type="number" placeholder="$USD" id="budget">
 				</div>
 				<div class="buttons">
@@ -99,7 +99,8 @@
 		</div>
 
 		<div class="detailContainer">
-			<h3 class="cityName"></h3>
+			<img class="stamp" src="assets/stamp.svg" alt="a black and white stamp"><h3 class="cityName"></h3>
+
 			<div class="coffeeDetails">
 				<i class="fa fa-coffee" aria-hidden="true"></i>
 				<p id="coffeeCost"></p>
@@ -129,5 +130,20 @@
 	
 		
 	<script src="dev/scripts/main.js"></script>
+	<script>$(function() {
+     $('a[href*="#"]:not([href="#"])').click(function() {
+       if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+         var target = $(this.hash);
+         target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+         if (target.length) {
+           $('html, body').animate({
+             scrollTop: target.offset().top
+           }, 1000);
+           return false;
+         }
+       }
+     });
+    });
+    </script>
 </body>
 </html>
