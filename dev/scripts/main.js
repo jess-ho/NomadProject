@@ -144,7 +144,7 @@ nomadApp.events = function() {
 	// when form is submitted
 	$('.headerNext').on('click', function(e){
 		e.preventDefault();
-		$('.current').removeClass('current').hide().next().fadeIn(1500).addClass('current')
+		$('.current').removeClass('current').hide().next().fadeIn(800).addClass('current')
 	})
 
 		$(".headerNext").hover(function(){
