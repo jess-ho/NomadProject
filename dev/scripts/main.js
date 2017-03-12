@@ -106,7 +106,7 @@ nomadApp.getCityInfo = function(cityName) {
 		// if initial costs from api are undefined... 
 		if (airbnbCost === undefined && beerCost === undefined && coffeeCost === undefined && hotelCost === undefined) {
 			$('.results').html(`
-				<p><span class="capitalize">${cityCleanName.replace(/-/g, " ")}'s</span> information is currently unavailable.</p>
+				<p><span class="capitalize highlight">${cityCleanName.replace(/-/g, " ")}'s</span> information is currently unavailable.</p>
 				`);
 			$('.cityDetails').hide();
 		}
