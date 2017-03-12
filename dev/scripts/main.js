@@ -68,7 +68,9 @@ nomadApp.getCityInfo = function(cityName) {
 		if (cityOptions.result[0] !== undefined) {
 			var weatherAverage = cityOptions.result[0].info.weather.temperature.celsius;
 		}
-		var cityImageName = cityOptions.result[0].info.city.name;
+		if (cityOptions.result[0] !== undefined) {
+			var cityImageName = cityOptions.result[0].info.city.name;
+		}
 		// url for image
 		if (cityOptions.result[0] !== undefined) {
 			var cityImage1500 = `https://nomadlist.com${cityOptions.result[0].media.image["1500"]}`;
@@ -96,10 +98,8 @@ nomadApp.getCityInfo = function(cityName) {
 			var stayCost =  hotelCost;
 		}
 
-		var foodCost = Math.round(((nomadCost / 30) - hotelCost) * 100) / 100;
-
 		// calculating total costs per day
-		var totalDays = Math.floor(budget / (foodCost + stayCost + alcoholPerDay + coffeePerDay));
+		var totalDays = Math.floor(budget / (stayCost + alcoholPerDay + coffeePerDay));
 
 		var cityCleanName = nomadApp.cityName;
 
@@ -108,6 +108,7 @@ nomadApp.getCityInfo = function(cityName) {
 			$('.results').html(`
 				<p>${cityCleanName.replace(/-/g, " ")}'s information is currently unavailable.</p>
 				`);
+			$('.cityDetails').hide();
 		}
 		// if someone enters negative budget 
 		else if (budget < 0) {
@@ -122,17 +123,10 @@ nomadApp.getCityInfo = function(cityName) {
 				<p>You can stay in <span class="capitalize">${cityCleanName.replace(/-/g, " ")}</span> for ${totalDays} days based on your selected style of travel</p>
 				`);
 
-			$('.cityImage').css({
-				'background': `url(${cityImage1500})`,
-				'background-size': 'cover', 
-				'background-position': 'center', 
-				'width': '1000px',
-				'height': '500px'
-			});
+			$('.cityImage').append($(`<img src='${cityImage1500}'>`)).css('width', '100%');
 
 			$('#coffeeCost').text(`$${coffeePerDay} / day`);
 			$('#alcoholCost').text(`$${alcoholPerDay} / day`);
-			$('#foodCost').text(`$${foodCost} / day`);
 			$('#stayCost').text(`$${stayCost} / night`);
 			if (wifiSpeed !== 0) {
 				$('#wifiSpeed').text(`${wifiSpeed} / mbps`);
@@ -150,7 +144,7 @@ nomadApp.events = function() {
 	// when form is submitted
 	$('.headerNext').on('click', function(e){
 		e.preventDefault();
-		$('.current').removeClass('current').hide().next().fadeIn().addClass('current')
+		$('.current').removeClass('current').hide().next().fadeIn(1500).addClass('current')
 	})
 
 		$(".headerNext").hover(function(){
@@ -188,8 +182,8 @@ nomadApp.events = function() {
 		nomadApp.cityName = $('#city').val();
 		nomadApp.getCityInfo(nomadApp.cityName);
 		$('.headerBack').hide();
-		$('.submitButton').hide();
 		$('.resetButton').fadeIn();
+		$('.cityDetails').fadeIn();
 	});
 		$(".submitButton").hover(function(){
 			$(this).toggleClass("is-active");
