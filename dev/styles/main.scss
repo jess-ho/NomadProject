@@ -95,6 +95,7 @@ header {
 }
 .searchBar {
 	display: flex;
+	justify-content: center;
 	width: 80%;
 	padding: 10px 0;
 }
@@ -104,6 +105,7 @@ header {
 	font-size: 30px;
 	top: 10px;
 	left: 10px;
+	cursor: pointer;
 }
 .credits {
 	position: absolute;
@@ -170,13 +172,15 @@ form {
 }
 .choice {
 	height: 100%;
-	padding: 10px 20px;
+	padding: 10px 0;
 	font-size: 16px;
 	border: none;
 	background: white;
 	border-right: 1px solid $lightColor;
 	text-transform: capitalize;
 	letter-spacing: 1px;
+	display: block;
+
 	&:last-of-type {
 		border-right: none;
 	}
@@ -284,8 +288,8 @@ form {
 
 .airplane {
 	position: relative;
-	animation: fly 4s ease;
-	animation-delay: 1s;
+	animation: fly 3s ease;
+	animation-delay: 2s;
 	opacity: 0;
 }
 
@@ -306,3 +310,5 @@ form {
 		opacity: 1;
 	}
 }
+
+@import "media";
