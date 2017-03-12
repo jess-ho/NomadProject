@@ -1,16 +1,20 @@
-@import "setup";
-@import "selectButtonStyle";
+@import "partials/setup";
+@import "partials/selectButtonStyle";
 
 // variables
 $darkColor: #3C434D;
 $mediumColor: #7C838E;
 $lightColor: #C3B9B0;
 $accentColor: #FAA71A;
+
 // base styling
+html {
+	text-align: center;
+}
+
 h1, h2, h3 {
 	font-family: 'Quicksand', sans-serif;
 	color: #fff;
-	text-align: center;
 }	
 
 h1 {
@@ -19,7 +23,7 @@ h1 {
 
 h2{
 	margin: 10px 0;
-	font-size: 20px;
+	font-size: 24px;
 	font-weight: 100;
 }
 p {
@@ -27,7 +31,6 @@ p {
 	color: #fff;
 	font-size: 20px;
 	line-height: 1.7;
-	text-align: center;
 	letter-spacing: 3px;
 }
 label {
@@ -35,14 +38,13 @@ label {
 	font-family: 'Roboto', sans-serif;
 	font-size: 20px;
 	line-height: 1.7;
-	text-align: center;
 	letter-spacing: 3px;
 }
 .headerNext, .submitButton, .headerBack, .resetButton {
 	background-color: $accentColor;
 	color: #fff;
 	font-family: 'Roboto', sans-serif;
-	font-size: 18px;
+	font-size: 14px;
 	border-radius: 3px;
 	border-bottom-left-radius: 0;
 	border-top-left-radius: 0;
@@ -51,11 +53,8 @@ label {
 	height: 50px;
 	padding: 0;
 	text-transform: uppercase;
-	text-align: center;
 	letter-spacing: 3px;
 	transition: all .5s ease;
-	// margin: 15px;
-	outline: none;
 }
 .is-active {
 	box-shadow: 0 25px 15px -15px rgba(#000, 1);
@@ -67,8 +66,7 @@ label {
 }
 
 .special{
-	font-size: 11px;
-
+	font-size: 16px;
 }
 
 .wrapper {
@@ -81,6 +79,7 @@ input {
 	letter-spacing: 1px;
 }
 // end of base styling
+
 // header styling
 header {
 	background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(../../assets/firstHero.jpg);
@@ -99,7 +98,7 @@ header {
 	width: 80%;
 	padding: 10px 0;
 }
-.fa-info-circle:before {
+.fa-info-circle {
 	position: absolute;
 	color: $accentColor;
 	font-size: 30px;
@@ -121,7 +120,6 @@ header {
 .js-example-basic-single {
 	width: 100%;
 	margin: 20px;
-	text-align: center;
 	background: transparent;
 	appearance: none;
 	font-size: 20px;
@@ -129,6 +127,8 @@ header {
 }
 #select2-city-container {
 	color: $darkColor;
+	text-transform: capitalize;
+	text-align: left;
 }
 .select2-results__options li {
 	padding: 10px 5px;
@@ -138,9 +138,10 @@ form {
 	max-width: 850px;
 	margin: 0 auto;
 }
+
 .firstScreen {
 	display: flex;
-	transform: translateY(-20%);
+	transform: translateY(-10%);
 	img {
 		width: 60px
 	}
@@ -160,9 +161,28 @@ form {
 .coffeeConsumption, .alcoholConsumption, .housingOption, .budgetOption {
 	margin: 40px 0;
 }
-.secondScreen, .thirdScreen {
-	text-align: center;
+.housingOption, .budgetOption {
+	h2 i{
+		color: $accentColor;
+		position: static;
+		margin-left: 10px;
+	}
 }
+
+.accommodationMoreInfo {
+	display:none;
+	p {
+		font-size: 12px;
+	}
+} 
+
+.budgetMoreInfo {
+	display:none;
+	 p {
+		font-size: 12px;
+	}
+}
+
 .choicesContainer {
 	border: 3px solid $lightColor;
 	display: inline-flex;
@@ -203,24 +223,21 @@ form {
 .buttons {
 	display: flex;
 	justify-content: space-around;
-	border: none;
-	outline: none;
 }
 .submitButton:disabled {
 	background-color: rgba(250,167,26, 0.1);
 	color: rgba(255,255,255,0.1);
-	border: none;
-	outline: none;
 }
 .active {
 	background: $mediumColor;
 	color: white;
-	border: none;
-	outline: none;
 }
 
 .capitalize {
 	text-transform: capitalize;
+}
+.highlight{
+	color: $darkColor;
 }
 
 .results .result-details {
@@ -236,50 +253,69 @@ form {
 
 .cityContainer {
 	display: flex;
-	border: 1px solid red;
 	max-height: 600px;
 	overflow: hidden;
+	box-shadow: -1px 20px 107px 2px rgba(195,185,176,0.55);
+}
+
+.stamp{
+	height: 100px;
+	width:100px;
+	align-self: flex-end;
 }
 
 .cityImage {
 	width: 70%;
 	z-index: 99; 
 	position: relative;
+	overflow: hidden;
 	p {
 		position: absolute;
-		top: 40%;
-		left: 40%;
-		transform: translate(50% -50%);
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
 		color: red;
 		z-index: -1;
-		text-align: center;
 	}
 	img {
-		max-width: 100%;
 		display: block;
+		height:100%;
+		width:100%;
 	}
 }
 
 .detailContainer{
 	width: 30%;
 	padding: 20px;
+	text-align: left;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
 
 	i {
 		width: 20px;
-		text-align: center;
 		color: $darkColor;
+		margin-right: 5px;
 	}
 
 	 p {
 		display: inline;
 		color: $darkColor;
 	}
+
+	h3{
+		align-self:flex-end;
+		border-right: 3px solid $accentColor;
+	}
+	div{
+		margin: 10px 0;
+	}
 }
 .cityDetails {
 	padding: 60px 0;
 }
 .cityName {
-	padding: 20px;
+	padding: 0 10px;
 	margin: 0;
 	color: $darkColor;
 	text-transform: uppercase;
@@ -311,4 +347,4 @@ form {
 	}
 }
 
-@import "media";
+@import "partials/media";

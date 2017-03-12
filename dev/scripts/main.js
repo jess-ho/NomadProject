@@ -73,10 +73,8 @@ nomadApp.getCityInfo = function(cityName) {
 		}
 		// url for image
 		if (cityOptions.result[0] !== undefined) {
-			var cityImage1500 = `https://nomadlist.com${cityOptions.result[0].media.image["1500"]}`;
-		} else {
-			var cityImage1500 = 'https://unsplash.it/1000'
-		}
+			var cityImage1500 = `https://nomadlist.com${cityOptions.result[0].media.image["1000"]}`;
+		} 
 
 		// total budget 
 		var budget = $('#budget').val();
@@ -106,7 +104,7 @@ nomadApp.getCityInfo = function(cityName) {
 		// if initial costs from api are undefined... 
 		if (airbnbCost === undefined && beerCost === undefined && coffeeCost === undefined && hotelCost === undefined) {
 			$('.results').html(`
-				<p>${cityCleanName.replace(/-/g, " ")}'s information is currently unavailable.</p>
+				<p><span class="capitalize highlight">${cityCleanName.replace(/-/g, " ")}'s</span> information is currently unavailable.</p>
 				`);
 			$('.cityDetails').hide();
 		}
@@ -120,20 +118,21 @@ nomadApp.getCityInfo = function(cityName) {
 		else {
 			$('.results').html(`
 
-				<p>You can stay in <span class="capitalize">${cityCleanName.replace(/-/g, " ")}</span> for ${totalDays} days based on your selected style of travel</p>
+				<p>You can stay in <span class="capitalize highlight">${cityCleanName.replace(/-/g, " ")}</span> for <span class="highlight">${totalDays} days</span> based on your selected style of travel</p>
 				`);
 
-			$('.cityImage').append($(`<img src='${cityImage1500}'>`)).css('width', '100%');
+			$('.cityImage').append($(`<img src='${cityImage1500}'>`));
 
-			$('#coffeeCost').text(`$${coffeePerDay} / day`);
-			$('#alcoholCost').text(`$${alcoholPerDay} / day`);
-			$('#stayCost').text(`$${stayCost} / night`);
+			$('#coffeeCost').text(`$${coffeePerDay} /day`);
+			$('#alcoholCost').text(`$${alcoholPerDay} /day`);
+			$('#stayCost').text(`$${stayCost} /night`);
 			if (wifiSpeed !== 0) {
-				$('#wifiSpeed').text(`${wifiSpeed} / mbps`);
+				$('#wifiSpeed').text(`${wifiSpeed} /mbps`);
 			} else {
 				$('.wifiDetails').hide();
+				$('.weatherDetails').addClass('showWeather');
 			}
-			$('#weatherAverage').text(`${weatherAverage} degree celsius`);
+			$('#weatherAverage').text(`${weatherAverage}ºC`);
 
 			$('.cityName').text(cityImageName);
 		}
@@ -184,6 +183,9 @@ nomadApp.events = function() {
 		$('.headerBack').hide();
 		$('.resetButton').fadeIn();
 		$('.cityDetails').fadeIn();
+		$('html, body').animate({
+			scrollTop: $('.results').offset().top
+		}, 1000);
 	});
 		$(".submitButton").hover(function(){
 			$(this).toggleClass("is-active");
@@ -196,13 +198,21 @@ nomadApp.events = function() {
 			$(this).toggleClass("is-active");
 		})	
 
-	$('#budget').on('keydown', function() {
+	$('#budget').on('change', function() {
 		if ($('#budget').val() !== '') {
 			$('.submitButton').removeAttr('disabled');
 		}
 	})
-	$('.fa-info-circle').on('click', function() {
+	$('.firstToggle').on('click', function() {
 		$('.credits p').toggle('fadeIn');
+	})
+
+
+	$('.housingToggle').on('click', function() {
+		$('.accommodationMoreInfo').toggle('fadeIn');
+	})
+	$('.budgetToggle').on('click', function() {
+		$('.budgetMoreInfo').toggle('fadeIn');
 	})
 
 	$('.airplane').one('animationend', function() {
