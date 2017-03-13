@@ -6,11 +6,6 @@
 	.cityImage {
 		display: flex;
 		flex-direction: column-reverse;
-		p {
-			position: relative;
-			top: 0;
-			left: 0;
-		}
 	}
 	.detailContainer, .detailContainer_costs, .cityImage {
 		width: 100%;
