@@ -15,11 +15,15 @@ h1, h2, h3 {
 }	
 h1 {
 	margin: 10px 0 20px;
+	font-size: 2.2em;
 }
 h2 {
 	margin: 10px 0;
-	font-size: 24px;
+	font-size: 40px;
 	font-weight: 100;
+}
+h3{
+	font-size: 18px;
 }
 p {
 	font-family: 'Roboto', sans-serif;
@@ -211,7 +215,7 @@ form {
 	justify-content: space-around;
 }
 .submitButton:disabled {
-	background-color: rgba(250,167,26, 0.1);
+	background-color: rgba(250,167,26, 0.2);
 	color: rgba(255,255,255,0.1);
 }
 .active {
